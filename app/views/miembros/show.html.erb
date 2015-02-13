@@ -1,4 +1,34 @@
 <p id="notice"><%= notice %></p>
 
+<p>
+  <strong>Idfiscal:</strong>
+  <%= @miembro.idFiscal %>
+</p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @miembro.nombre %>
+</p>
+
+<p>
+  <strong>Estado:</strong>
+  <%= @miembro.estado %>
+</p>
+
+<p>
+  <strong>Tipo:</strong>
+  <%= @miembro.tipo %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @miembro.email %>
+</p>
+
+<p>
+  <strong>Direccion:</strong>
+  <%= @miembro.direccion %>
+</p>
+
 <%= link_to 'Edit', edit_miembro_path(@miembro) %> |
 <%= link_to 'Back', miembros_path %>

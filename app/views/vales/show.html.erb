@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Cuenta:</strong>
+  <%= @vale.cuenta %>
+</p>
+
+<p>
+  <strong>Responsable:</strong>
+  <%= @vale.responsable %>
+</p>
+
+<p>
+  <strong>Fechaemision:</strong>
+  <%= @vale.fechaEmision %>
+</p>
+
+<p>
+  <strong>Fecharendicion:</strong>
+  <%= @vale.fechaRendicion %>
+</p>
+
+<p>
+  <strong>Estado:</strong>
+  <%= @vale.estado %>
+</p>
+
+<p>
+  <strong>Montopesos:</strong>
+  <%= @vale.montoPesos %>
+</p>
+
+<p>
+  <strong>Montodolares:</strong>
+  <%= @vale.montoDolares %>
+</p>
+
+<p>
+  <strong>Comentario:</strong>
+  <%= @vale.comentario %>
+</p>
+
+<%= link_to 'Edit', edit_vale_path(@vale) %> |
+<%= link_to 'Back', vales_path %>

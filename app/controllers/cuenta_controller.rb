@@ -69,6 +69,6 @@ class CuentaController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def cuentum_params
-      params[:cuentum]
+      params.require(:cuentum).permit(:cuenta, :subcuenta1, :subcuenta2, :subcuenta3, :subcuenta4, :subcuenta5, :descripcion, :nombre, :estado, :tipo)
     end
 end

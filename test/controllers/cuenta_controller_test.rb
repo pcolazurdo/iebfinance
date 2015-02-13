@@ -18,7 +18,7 @@ class CuentaControllerTest < ActionController::TestCase
 
   test "should create cuentum" do
     assert_difference('Cuenta.count') do
-      post :create, cuentum: {  }
+      post :create, cuentum: { cuenta: @cuentum.cuenta, descripcion: @cuentum.descripcion, estado: @cuentum.estado, nombre: @cuentum.nombre, subcuenta1: @cuentum.subcuenta1, subcuenta2: @cuentum.subcuenta2, subcuenta3: @cuentum.subcuenta3, subcuenta4: @cuentum.subcuenta4, subcuenta5: @cuentum.subcuenta5, tipo: @cuentum.tipo }
     end
 
     assert_redirected_to cuentum_path(assigns(:cuentum))
@@ -35,7 +35,7 @@ class CuentaControllerTest < ActionController::TestCase
   end
 
   test "should update cuentum" do
-    patch :update, id: @cuentum, cuentum: {  }
+    patch :update, id: @cuentum, cuentum: { cuenta: @cuentum.cuenta, descripcion: @cuentum.descripcion, estado: @cuentum.estado, nombre: @cuentum.nombre, subcuenta1: @cuentum.subcuenta1, subcuenta2: @cuentum.subcuenta2, subcuenta3: @cuentum.subcuenta3, subcuenta4: @cuentum.subcuenta4, subcuenta5: @cuentum.subcuenta5, tipo: @cuentum.tipo }
     assert_redirected_to cuentum_path(assigns(:cuentum))
   end
 

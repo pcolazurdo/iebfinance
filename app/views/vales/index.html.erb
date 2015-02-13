@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Vales</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Cuenta</th>
+      <th>Responsable</th>
+      <th>Fechaemision</th>
+      <th>Fecharendicion</th>
+      <th>Estado</th>
+      <th>Montopesos</th>
+      <th>Montodolares</th>
+      <th>Comentario</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @vales.each do |vale| %>
+      <tr>
+        <td><%= vale.cuenta %></td>
+        <td><%= vale.responsable %></td>
+        <td><%= vale.fechaEmision %></td>
+        <td><%= vale.fechaRendicion %></td>
+        <td><%= vale.estado %></td>
+        <td><%= vale.montoPesos %></td>
+        <td><%= vale.montoDolares %></td>
+        <td><%= vale.comentario %></td>
+        <td><%= link_to 'Show', vale %></td>
+        <td><%= link_to 'Edit', edit_vale_path(vale) %></td>
+        <td><%= link_to 'Destroy', vale, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Vale', new_vale_path %>
