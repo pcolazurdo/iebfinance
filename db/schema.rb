@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150213005412) do
+ActiveRecord::Schema.define(version: 20150213215353) do
 
   create_table "cuenta", force: :cascade do |t|
     t.string   "cuenta"
@@ -26,19 +26,6 @@ ActiveRecord::Schema.define(version: 20150213005412) do
     t.string   "tipo"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-  end
-
-  create_table "efectivos", force: :cascade do |t|
-    t.date     "fecha"
-    t.decimal  "Pesos2"
-    t.decimal  "Pesos5"
-    t.decimal  "Pesos10"
-    t.decimal  "Pesos20"
-    t.decimal  "Pesos50"
-    t.decimal  "Pesos100"
-    t.decimal  "PesosMonedas"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
   end
 
   create_table "miembros", force: :cascade do |t|
