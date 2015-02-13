@@ -2,7 +2,7 @@
 
 <h1>Listing Miembros</h1>
 
-<table>
+<table class="table table-hover table-stripped table-condensed table-bordered">
   <thead>
     <tr>
       <th>Idfiscal</th>
@@ -24,9 +24,18 @@
         <td><%= miembro.tipo %></td>
         <td><%= miembro.email %></td>
         <td><%= miembro.direccion %></td>
-        <td><%= link_to 'Show', miembro %></td>
-        <td><%= link_to 'Edit', edit_miembro_path(miembro) %></td>
-        <td><%= link_to 'Destroy', miembro, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to miembro, class: "btn btn-default" do %>
+            <span class="glyphicon glyphicon-search"></span> Ver
+          <% end %>
+        </td>
+        <td><%= link_to edit_miembro_path(miembro), class: "btn btn-default" do %>
+            <span class="glyphicon glyphicon-edit"></span> Modificar
+          <% end %>
+        </td>
+        <td><%= link_to miembro, method: :delete, data: { confirm: 'Está seguro?' }, class: "btn btn-default" do %>
+            <span class="glyphicon glyphicon-remove"></span> Borrar
+          <% end %>
+        </td>
       </tr>
     <% end %>
   </tbody>
