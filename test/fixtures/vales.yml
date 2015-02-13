@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  cuenta: MyString
+  responsable: MyString
+  fechaEmision: 2015-02-12
+  fechaRendicion: 2015-02-12
+  estado: MyString
+  montoPesos: 9.99
+  montoDolares: 9.99
+  comentario: MyText
+
+two:
+  cuenta: MyString
+  responsable: MyString
+  fechaEmision: 2015-02-12
+  fechaRendicion: 2015-02-12
+  estado: MyString
+  montoPesos: 9.99
+  montoDolares: 9.99
+  comentario: MyText

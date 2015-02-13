@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  cuenta: MyString
+  subcuenta1: MyString
+  subcuenta2: MyString
+  subcuenta3: MyString
+  subcuenta4: MyString
+  subcuenta5: MyString
+  descripcion: MyText
+  nombre: MyString
+  estado: MyString
+  tipo: MyString
+
+two:
+  cuenta: MyString
+  subcuenta1: MyString
+  subcuenta2: MyString
+  subcuenta3: MyString
+  subcuenta4: MyString
+  subcuenta5: MyString
+  descripcion: MyText
+  nombre: MyString
+  estado: MyString
+  tipo: MyString

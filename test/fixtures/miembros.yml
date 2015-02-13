@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  idFiscal: MyString
+  nombre: MyString
+  estado: MyString
+  tipo: MyString
+  email: MyString
+  direccion: MyString
+
+two:
+  idFiscal: MyString
+  nombre: MyString
+  estado: MyString
+  tipo: MyString
+  email: MyString
+  direccion: MyString
