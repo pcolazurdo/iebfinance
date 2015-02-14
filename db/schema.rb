@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150213215353) do
+ActiveRecord::Schema.define(version: 20150214144911) do
 
   create_table "cuenta", force: :cascade do |t|
     t.string   "cuenta"
@@ -50,6 +50,9 @@ ActiveRecord::Schema.define(version: 20150213215353) do
     t.text     "comentario"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
+    t.integer  "cuenta_id"
   end
+
+  add_index "vales", ["cuenta_id"], name: "index_vales_on_cuenta_id"
 
 end

@@ -1,18 +1,19 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Cuenta</h1>
+<h1>Cuentas</h1>
 
-<table>
+<table class="table table-hover table-stripped table-condensed table-bordered">
   <thead>
     <tr>
       <th>Cuenta</th>
+      <th>Nombre</th>
       <th>Subcuenta1</th>
       <th>Subcuenta2</th>
       <th>Subcuenta3</th>
       <th>Subcuenta4</th>
       <th>Subcuenta5</th>
-      <th>Descripcion</th>
-      <th>Nombre</th>
+      <th>Descripción</th>
+
       <th>Estado</th>
       <th>Tipo</th>
       <th colspan="3"></th>
@@ -23,18 +24,27 @@
     <% @cuenta.each do |cuentum| %>
       <tr>
         <td><%= cuentum.cuenta %></td>
+        <td><%= cuentum.nombre %></td>
         <td><%= cuentum.subcuenta1 %></td>
         <td><%= cuentum.subcuenta2 %></td>
         <td><%= cuentum.subcuenta3 %></td>
         <td><%= cuentum.subcuenta4 %></td>
         <td><%= cuentum.subcuenta5 %></td>
         <td><%= cuentum.descripcion %></td>
-        <td><%= cuentum.nombre %></td>
         <td><%= cuentum.estado %></td>
         <td><%= cuentum.tipo %></td>
-        <td><%= link_to 'Show', cuentum %></td>
-        <td><%= link_to 'Edit', edit_cuentum_path(cuentum) %></td>
-        <td><%= link_to 'Destroy', cuentum, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to cuentum, class: "btn btn-default" do %>
+          <span class="glyphicon glyphicon-search"></span> Ver
+          <% end %>
+        </td>
+        <td><%= link_to edit_cuentum_path(cuentum), class: "btn btn-default" do %>
+          <span class="glyphicon glyphicon-edit"></span> Modificar
+          <% end %>
+        </td>
+        <td><%= link_to cuentum, method: :delete, data: { confirm: 'Está seguro?' }, class: "btn btn-default" do %>
+          <span class="glyphicon glyphicon-remove"></span> Borrar
+          <% end %>
+        </td>
       </tr>
     <% end %>
   </tbody>
@@ -42,4 +52,6 @@
 
 <br>
 
-<%= link_to 'New Cuenta', new_cuentum_path %>
+<%= link_to new_cuentum_path, class: "btn btn-default" do %>
+<span class="glyphicon glyphicon-plus"></span> Nueva Cuenta
+<% end %>
