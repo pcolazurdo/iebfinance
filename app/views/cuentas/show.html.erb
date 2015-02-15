@@ -1,0 +1,87 @@
+<p id="notice"><%= notice %></p>
+
+<h2> Detalle de la Cuenta <%= @cuenta.cuenta %> </h2>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @cuenta.nombre %>
+</p>
+
+<p>
+  <strong>Descripcion:</strong>
+  <%= @cuenta.descripcion %>
+</p>
+
+
+<p>
+  <strong>Subcuenta1:</strong>
+  <%= @cuenta.subcuenta1 %>
+</p>
+
+<p>
+  <strong>Subcuenta2:</strong>
+  <%= @cuenta.subcuenta2 %>
+</p>
+
+<p>
+  <strong>Subcuenta3:</strong>
+  <%= @cuenta.subcuenta3 %>
+</p>
+
+<p>
+  <strong>Subcuenta4:</strong>
+  <%= @cuenta.subcuenta4 %>
+</p>
+
+<p>
+  <strong>Subcuenta5:</strong>
+  <%= @cuenta.subcuenta5 %>
+</p>
+
+<p>
+  <strong>Estado:</strong>
+  <%= @cuenta.estado %>
+</p>
+
+<p>
+  <strong>Tipo:</strong>
+  <%= @cuenta.tipo %>
+</p>
+
+<h2> Vales </h2>
+
+<table class="table table-hover table-stripped table-condensed table-bordered">
+  <thead>
+    <tr>
+      <th> Responsable </th>
+      <th> Monto Pesos </th>
+      <th> Monto Dólares </th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @vales.each do |v| %>
+      <tr>
+        <td> <%= v.responsable %> </td>
+        <td> <%= v.montoPesos %> </td>
+        <td> <%= v.montoDolares %> </td>
+    <% end %>
+  </tbody>
+</table>
+<%#
+= list(:journal_entry_items) do
+- currency = Preference[:currency]
+%tr.total
+%th{colspan: 6}= :total.tl
+%td.value= totals[:debit].l(currency: currency)
+%td.value= totals[:credit].l(currency: currency)
+%th
+%tr.total
+%th{colspan: 6}= :balance.tl
+%td.value= totals[:balance_debit].l(currency: currency)
+%td.value= totals[:balance_credit].l(currency: currency)
+%th
+*/
+%>
+
+<%= link_to 'Edit', edit_cuenta_path(@cuenta) %> |
+<%= link_to 'Back', cuentas_path %>

@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  resources :miembros
+  resources :cuentas
 
-  resources :cuenta
+  resources :miembros
 
   resources :vales
 

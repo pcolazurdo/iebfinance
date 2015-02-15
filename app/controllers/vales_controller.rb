@@ -14,17 +14,21 @@ class ValesController < ApplicationController
 
   # GET /vales/new
   def new
+    puts "New vale"
     @vale = Vale.new
   end
 
   # GET /vales/1/edit
   def edit
+
   end
 
   # POST /vales
   # POST /vales.json
   def create
-    @vale = Vale.new(vale_params)
+    puts "Create vale, cuenta_id, params", params[:vale][:cuenta_id], params
+    @cuenta = Cuenta.find(params[:vale][:cuenta_id])
+    @vale = @cuenta.vales.new(vale_params)
 
     respond_to do |format|
       if @vale.save

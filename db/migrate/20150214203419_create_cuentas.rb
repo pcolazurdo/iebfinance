@@ -1,6 +1,6 @@
-class CreateCuenta < ActiveRecord::Migration
+class CreateCuentas < ActiveRecord::Migration
   def change
-    create_table :cuenta do |t|
+    create_table :cuentas do |t|
       t.string :cuenta
       t.string :subcuenta1
       t.string :subcuenta2

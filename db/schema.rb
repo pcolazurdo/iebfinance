@@ -11,9 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150214144911) do
+ActiveRecord::Schema.define(version: 20150214203419) do
 
   create_table "cuenta", force: :cascade do |t|
+    t.string   "cuenta"
+    t.string   "subcuenta1"
+    t.string   "subcuenta2"
+    t.string   "subcuenta3"
+    t.string   "subcuenta4"
+    t.string   "subcuenta5"
+    t.text     "descripcion"
+    t.string   "nombre"
+    t.string   "estado"
+    t.string   "tipo"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "cuentas", force: :cascade do |t|
     t.string   "cuenta"
     t.string   "subcuenta1"
     t.string   "subcuenta2"

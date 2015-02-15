@@ -14,3 +14,8 @@
 # ActiveSupport::Inflector.inflections(:en) do |inflect|
 #   inflect.acronym 'RESTful'
 # end
+
+# Added by pcolazurdo
+ActiveSupport::Inflector.inflections do |inflect|
+  inflect.irregular 'cuenta', 'cuentas'
+end
