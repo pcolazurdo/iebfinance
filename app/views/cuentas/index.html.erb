@@ -2,6 +2,8 @@
 
 <h1>Listing Cuentas</h1>
 
+<%= list -%>
+
 <table class="table table-hover table-stripped table-condensed table-bordered">
   <thead>
     <tr>
@@ -43,7 +45,7 @@
         <td><%= link_to cuenta, method: :delete, data: { confirm: 'Está seguro?' }, class: "btn btn-default" do %>
           <span class="glyphicon glyphicon-remove"></span> Borrar
           <% end %>
-        </td>        
+        </td>
       </tr>
     <% end %>
   </tbody>

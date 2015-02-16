@@ -1,5 +1,8 @@
 class CuentasController < ApplicationController
   before_action :set_cuenta, only: [:show, :edit, :update, :destroy]
+  require 'active_list'
+
+  list
 
   # GET /cuentas
   # GET /cuentas.json

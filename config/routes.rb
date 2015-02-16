@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
-  resources :cuentas
+  # resources :cuentas
+  resources :cuentas do
+    collection do
+      get :list
+    end
+  end
 
   resources :miembros
 

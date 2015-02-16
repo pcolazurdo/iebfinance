@@ -14,8 +14,11 @@
  *= require_self
  */
 
+*= require active_list
+
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
 
 span.icon {
   font-family: 'Glyphicons Halflings';
