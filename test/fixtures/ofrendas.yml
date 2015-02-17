@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  fecha: 2015-02-17
+  montoPesos: 9.99
+  montoDolares: 9.99
+  esCheque: 
+  idcheque: MyString
+  comentario: MyText
+
+two:
+  fecha: 2015-02-17
+  montoPesos: 9.99
+  montoDolares: 9.99
+  esCheque: 
+  idcheque: MyString
+  comentario: MyText

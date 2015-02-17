@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  resources :ofrendas do
+    collection do
+      get :list
+    end
+  end
   #resources :cuentas
   resources :cuentas do
     collection do

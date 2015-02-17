@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Ofrendas</h1>
+
+<%= list -%>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fecha</th>
+      <th>Montopesos</th>
+      <th>Montodolares</th>
+      <th>Escheque</th>
+      <th>Idcheque</th>
+      <th>Comentario</th>
+      <th>Cuenta</th>
+      <th>Miembro</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @ofrendas.each do |ofrenda| %>
+      <tr>
+        <td><%= ofrenda.fecha %></td>
+        <td><%= ofrenda.montoPesos %></td>
+        <td><%= ofrenda.montoDolares %></td>
+        <td><%= ofrenda.esCheque %></td>
+        <td><%= ofrenda.idcheque %></td>
+        <td><%= ofrenda.comentario %></td>
+        <td><%= ofrenda.cuenta_id %></td>
+        <td><%= ofrenda.miembro_id %></td>
+        <td><%= link_to 'Show', ofrenda %></td>
+        <td><%= link_to 'Edit', edit_ofrenda_path(ofrenda) %></td>
+        <td><%= link_to 'Destroy', ofrenda, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Ofrenda', new_ofrenda_path %>

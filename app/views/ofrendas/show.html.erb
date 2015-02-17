@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Fecha:</strong>
+  <%= @ofrenda.fecha %>
+</p>
+
+<p>
+  <strong>Montopesos:</strong>
+  <%= @ofrenda.montoPesos %>
+</p>
+
+<p>
+  <strong>Montodolares:</strong>
+  <%= @ofrenda.montoDolares %>
+</p>
+
+<p>
+  <strong>Escheque:</strong>
+  <%= @ofrenda.esCheque %>
+</p>
+
+<p>
+  <strong>Idcheque:</strong>
+  <%= @ofrenda.idcheque %>
+</p>
+
+<p>
+  <strong>Comentario:</strong>
+  <%= @ofrenda.comentario %>
+</p>
+
+<%= link_to 'Edit', edit_ofrenda_path(@ofrenda) %> |
+<%= link_to 'Back', ofrendas_path %>

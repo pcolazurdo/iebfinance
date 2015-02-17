@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150214203419) do
+ActiveRecord::Schema.define(version: 20150217143820) do
 
   create_table "cuenta", force: :cascade do |t|
     t.string   "cuenta"
@@ -53,6 +53,22 @@ ActiveRecord::Schema.define(version: 20150214203419) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "ofrendas", force: :cascade do |t|
+    t.date     "fecha"
+    t.decimal  "montoPesos"
+    t.decimal  "montoDolares"
+    t.boolean  "esCheque"
+    t.string   "idcheque"
+    t.text     "comentario"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.integer  "cuenta_id"
+    t.integer  "miembro_id"
+  end
+
+  add_index "ofrendas", ["cuenta_id"], name: "index_ofrendas_on_cuenta_id"
+  add_index "ofrendas", ["miembro_id"], name: "index_ofrendas_on_miembro_id"
 
   create_table "vales", force: :cascade do |t|
     t.string   "cuenta"
