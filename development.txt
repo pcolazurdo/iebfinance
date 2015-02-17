@@ -1,0 +1,7 @@
+ActiveList:
+
+
+Datepicker:
+https://github.com/TrevorS/bootstrap3-datetimepicker-rails
+
+Samples from Ekylibre

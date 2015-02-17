@@ -30,6 +30,10 @@ gem 'active-list'
 gem 'compass-rails'
 
 
+# Added for datepicker
+gem 'momentjs-rails', '>= 2.8.1'
+gem 'bootstrap3-datetimepicker-rails', '~> 4.0.0'
+
 # Bootstrap
 gem 'bootstrap-sass', '~> 3.2.0'
 gem 'autoprefixer-rails'
