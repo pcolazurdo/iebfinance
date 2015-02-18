@@ -1,4 +1,4 @@
-<%= form_for(@ofrenda) do |f| %>
+<%= bootstrap_form_for(@ofrenda) do |f| %>
   <% if @ofrenda.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@ofrenda.errors.count, "error") %> prohibited this ofrenda from being saved:</h2>
@@ -12,35 +12,28 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :cuenta_id %><br>
-    <%= f.text_field :cuenta_id %>
+    <%# <%= f.text_field :cuenta_id %>
+    <%= f.collection_select(:cuenta_id, Cuenta.all, :id, :nombre) %> <%#Modified for bootstrap_form_for %>
   </div>
   <div class="field">
-    <%= f.label :miembro_id %><br>
     <%= f.text_field :miembro_id %>
   </div>
   <div class="field">
-    <%= f.label :fecha %><br>
     <%= f.date_select :fecha %>
   </div>
   <div class="field">
-    <%= f.label :montoPesos %><br>
     <%= f.text_field :montoPesos %>
   </div>
   <div class="field">
-    <%= f.label :montoDolares %><br>
     <%= f.text_field :montoDolares %>
   </div>
   <div class="field">
-    <%= f.label :esCheque %><br>
     <%= f.text_field :esCheque %>
   </div>
   <div class="field">
-    <%= f.label :idcheque %><br>
     <%= f.text_field :idcheque %>
   </div>
   <div class="field">
-    <%= f.label :comentario %><br>
     <%= f.text_area :comentario %>
   </div>
   <div class="actions">

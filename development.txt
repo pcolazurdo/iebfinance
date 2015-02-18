@@ -4,4 +4,8 @@ ActiveList:
 Datepicker:
 https://github.com/TrevorS/bootstrap3-datetimepicker-rails
 
+Forms:
+https://github.com/bootstrap-ruby/rails-bootstrap-forms
+
+
 Samples from Ekylibre

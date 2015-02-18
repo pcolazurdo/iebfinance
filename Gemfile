@@ -34,6 +34,9 @@ gem 'compass-rails'
 gem 'momentjs-rails', '>= 2.8.1'
 gem 'bootstrap3-datetimepicker-rails', '~> 4.0.0'
 
+# Added for bootstrap forms:
+gem 'bootstrap_form'
+
 # Bootstrap
 gem 'bootstrap-sass', '~> 3.2.0'
 gem 'autoprefixer-rails'
