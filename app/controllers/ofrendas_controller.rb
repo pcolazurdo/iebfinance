@@ -35,8 +35,7 @@ class OfrendasController < ApplicationController
   # POST /ofrendas
   # POST /ofrendas.json
   def create
-    @ofrenda = Ofrenda.new(ofrenda_params)
-    @cuenta = Cuenta.find(params[:ofrenda][:cuenta_id])    
+    @cuenta = Cuenta.find(params[:ofrenda][:cuenta_id])
     @ofrenda = @cuenta.ofrendas.new(ofrenda_params)
 
     respond_to do |format|

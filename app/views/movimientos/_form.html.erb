@@ -1,0 +1,42 @@
+<%= bootstrap_form_for(@movimiento) do |f| %>
+  <% if @movimiento.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@movimiento.errors.count, "error") %> prohibited this movimiento from being saved:</h2>
+
+      <ul>
+      <% @movimiento.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+  <div class="field">
+    <%= f.date_select :fecha %>
+  </div>
+  <div class="field">
+    <%= f.collection_select(:cuenta_id, Cuenta.all, :id, :nombre) %> <%#Modified for bootstrap_form_for %>
+  </div>
+  <div class="field">
+    <%= f.text_field :IngresoPesos %>
+  </div>
+  <div class="field">
+    <%= f.text_field :IngresoDolares %>
+  </div>
+  <div class="field">
+    <%= f.text_field :EgresoPesos %>
+  </div>
+  <div class="field">
+    <%= f.text_field :EgresoDolares %>
+  </div>
+  <div class="field">
+    <%= f.text_field :Comprobante %>
+  </div>
+  <div class="field">
+    <%= f.text_area :comentario %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,4 +1,16 @@
 Rails.application.routes.draw do
+
+  concern :list do
+    get :list, on: :collection
+  end
+
+  resources :movimientos, concerns: [:list] do
+    collection do
+      get :list
+    end
+
+  end
+
   resources :ofrendas do
     collection do
       get :list
@@ -8,6 +20,9 @@ Rails.application.routes.draw do
   resources :cuentas do
     collection do
       get :list
+    end
+    member do
+      get :list_movimientos
     end
   end
 

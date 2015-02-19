@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Movimientos</h1>
+
+<%= list -%>
+
+<!-- <table>
+  <thead>
+    <tr>
+      <th>Fecha</th>
+      <th>Ingresopesos</th>
+      <th>Ingresodolares</th>
+      <th>Egresopesos</th>
+      <th>Egresodolares</th>
+      <th>Comprobante</th>
+      <th>Comentario</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @movimientos.each do |movimiento| %>
+      <tr>
+        <td><%= movimiento.fecha %></td>
+        <td><%= movimiento.IngresoPesos %></td>
+        <td><%= movimiento.IngresoDolares %></td>
+        <td><%= movimiento.EgresoPesos %></td>
+        <td><%= movimiento.EgresoDolares %></td>
+        <td><%= movimiento.Comprobante %></td>
+        <td><%= movimiento.comentario %></td>
+        <td><%= link_to 'Show', movimiento %></td>
+        <td><%= link_to 'Edit', edit_movimiento_path(movimiento) %></td>
+        <td><%= link_to 'Destroy', movimiento, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+ -->
+<br>
+
+<%= link_to 'New Movimiento', new_movimiento_path %>

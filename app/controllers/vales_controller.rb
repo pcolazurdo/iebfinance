@@ -26,7 +26,6 @@ class ValesController < ApplicationController
   # POST /vales
   # POST /vales.json
   def create
-    puts "Create vale, cuenta_id, params", params[:vale][:cuenta_id], params
     @cuenta = Cuenta.find(params[:vale][:cuenta_id])
     @vale = @cuenta.vales.new(vale_params)
 
@@ -73,6 +72,6 @@ class ValesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def vale_params
-      params.require(:vale).permit(:cuenta, :responsable, :fechaEmision, :fechaRendicion, :estado, :montoPesos, :montoDolares, :comentario)
+      params.require(:vale).permit(:cuenta_id, :cuenta, :responsable, :fechaEmision, :fechaRendicion, :estado, :montoPesos, :montoDolares, :comentario)
     end
 end

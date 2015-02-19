@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  fecha: 2015-02-18
+  IngresoPesos: 9.99
+  IngresoDolares: 9.99
+  EgresoPesos: 9.99
+  EgresoDolares: 9.99
+  Comprobante: MyString
+  comentario: MyText
+
+two:
+  fecha: 2015-02-18
+  IngresoPesos: 9.99
+  IngresoDolares: 9.99
+  EgresoPesos: 9.99
+  EgresoDolares: 9.99
+  Comprobante: MyString
+  comentario: MyText

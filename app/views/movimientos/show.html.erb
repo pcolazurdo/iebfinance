@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Fecha:</strong>
+  <%= @movimiento.fecha %>
+</p>
+
+<p>
+  <strong>Ingresopesos:</strong>
+  <%= @movimiento.IngresoPesos %>
+</p>
+
+<p>
+  <strong>Ingresodolares:</strong>
+  <%= @movimiento.IngresoDolares %>
+</p>
+
+<p>
+  <strong>Egresopesos:</strong>
+  <%= @movimiento.EgresoPesos %>
+</p>
+
+<p>
+  <strong>Egresodolares:</strong>
+  <%= @movimiento.EgresoDolares %>
+</p>
+
+<p>
+  <strong>Comprobante:</strong>
+  <%= @movimiento.Comprobante %>
+</p>
+
+<p>
+  <strong>Comentario:</strong>
+  <%= @movimiento.comentario %>
+</p>
+
+<%= link_to 'Edit', edit_movimiento_path(@movimiento) %> |
+<%= link_to 'Back', movimientos_path %>

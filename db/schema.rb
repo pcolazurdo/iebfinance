@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150217143820) do
+ActiveRecord::Schema.define(version: 20150218230112) do
 
   create_table "cuenta", force: :cascade do |t|
     t.string   "cuenta"
@@ -53,6 +53,21 @@ ActiveRecord::Schema.define(version: 20150217143820) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "movimientos", force: :cascade do |t|
+    t.date     "fecha"
+    t.decimal  "IngresoPesos"
+    t.decimal  "IngresoDolares"
+    t.decimal  "EgresoPesos"
+    t.decimal  "EgresoDolares"
+    t.string   "Comprobante"
+    t.text     "comentario"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.integer  "cuenta_id"
+  end
+
+  add_index "movimientos", ["cuenta_id"], name: "index_movimientos_on_cuenta_id"
 
   create_table "ofrendas", force: :cascade do |t|
     t.date     "fecha"

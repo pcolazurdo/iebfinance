@@ -1,8 +1,10 @@
 class CuentasController < ApplicationController
   before_action :set_cuenta, only: [:show, :edit, :update, :destroy]
-  
+
 
   list
+
+  list(:movimientos)
 
   # GET /cuentas
   # GET /cuentas.json
@@ -14,6 +16,7 @@ class CuentasController < ApplicationController
   # GET /cuentas/1.json
   def show
     @vales = @cuenta.vales.all
+    @movimientos = @cuenta.movimientos.all
   end
 
   # GET /cuentas/new
@@ -64,6 +67,8 @@ class CuentasController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

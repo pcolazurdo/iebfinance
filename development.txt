@@ -1,4 +1,27 @@
 ActiveList:
+Installation ...
+
+Usage:
+  Let's assume you're adding into cuentas_controller.rb a listing of movimientos. To do so you have to specify routes.rb as follows:
+  concern :list do
+    get :list, on: :collection
+  end
+
+  resources :movimientos, concerns: [:list] do
+    collection do
+      get :list
+    end
+  end
+  
+  resources :cuentas do
+    collection do
+      get :list
+    end
+    member do
+      get :list_movimientos
+    end
+  end
+
 
 
 Datepicker:
