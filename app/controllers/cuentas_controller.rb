@@ -4,7 +4,7 @@ class CuentasController < ApplicationController
 
   list
 
-  list(:movimientos)
+  list(:movimientos, conditions: ["? = cuenta_id", 'params[:id]'.c])
 
   # GET /cuentas
   # GET /cuentas.json
