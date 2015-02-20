@@ -6,8 +6,11 @@ class MovimientosController < ApplicationController
   # GET /movimientos
   # GET /movimientos.json
   def index
+    params[:q] ||= {}
+    created_at_gt = params[:q][:created_at_gt]
     @movimientos = Movimiento.all
     @totals = self.totals
+    @search = Movimiento.ransack(params[:q])
   end
 
   # GET /movimientos/1

@@ -1,6 +1,31 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Movimientos</h1>
+<h1> Movimientos</h1>
+
+
+
+<%= search_form_for @search do |f| %>
+  <div class="row">
+    <div class="date-range-filter col-md-8">
+      <div class="form-group">
+        <%= label_tag :q_created_at_gt %>
+        <div class="row no-padding-bottom">
+          <div class="col-md-6">
+            <div class="input-group">
+              <%= f.text_field :created_at_gt, :class => 'datepicker datepicker-from form-control', :value => params[:q][:created_at_gt] %>
+              <span class="input-group-addon">
+                <i class="icon icon-calendar"></i>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+
+
 
 <%= list -%>
 
