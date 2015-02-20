@@ -7,12 +7,25 @@ class MovimientosController < ApplicationController
   # GET /movimientos.json
   def index
     @movimientos = Movimiento.all
+    @totals = self.totals
   end
 
   # GET /movimientos/1
   # GET /movimientos/1.json
   def show
 
+  end
+
+  def totals
+    hash = {}
+    hash[:SumaPesos]  = Movimiento.where(["fecha BETWEEN ? AND ?", "01/01/2015", "31/12/2015"]).sum(:IngresoPesos)
+    puts "Totals", hash[:SumaPesos]
+    # hash[:credit] = self.journal_entry_items.sum(:credit)
+    # hash[:balance_debit] = 0.0
+    # hash[:balance_credit] = 0.0
+    # hash[:balance] = (hash[:debit]-hash[:credit]).abs
+    # hash["balance_#{hash[:debit]>hash[:credit] ? 'debit' : 'credit'}".to_sym] = hash[:balance]
+    return hash
   end
 
   # GET /movimientos/new

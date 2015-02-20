@@ -5,6 +5,7 @@ class ValesController < ApplicationController
   # GET /vales.json
   def index
     @vales = Vale.all
+    @totals = self.totals
   end
 
   # GET /vales/1
@@ -16,6 +17,13 @@ class ValesController < ApplicationController
   def new
     puts "New vale"
     @vale = Vale.new
+  end
+
+  def totals
+    hash = {}
+    hash[:SumaPesos]  = Vale.where("fechaRendicion IS NOT NULL").sum(:MontoPesos)
+    hash[:SumaDolares]  = Vale.where("fechaRendicion IS NOT NULL").sum(:MontoDolares)
+    return hash
   end
 
   # GET /vales/1/edit

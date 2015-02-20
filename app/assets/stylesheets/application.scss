@@ -11,7 +11,7 @@
  * file per style scope.
  *
  *= require active_list
- *= require rails_bootstrap_forms 
+ *= require rails_bootstrap_forms
  *= require_tree .
  *= require_self
  */
@@ -25,4 +25,16 @@
 
 span.icon {
   font-family: 'Glyphicons Halflings';
+}
+
+.total-row {
+  font-weight: bold
+}
+
+.total-row-title {
+  text-align: right
+}
+
+.total-column {
+  text-align: right
 }

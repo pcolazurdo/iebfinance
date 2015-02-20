@@ -844,4 +844,24 @@ module ApplicationHelper
   #     return tl("conditions.#{condition}")
   #   end
   # end
+
+  def condition_current_period(indate)
+    indate = indate.to_date
+    y = indate.to_datetime.year
+    m = indate.to_datetime.month
+    d = indate.to_datetime.month
+
+    if m >= 4
+      begin_date = "01/04/"+y.to_s
+      end_date = "31/03/"+(y.to_i+1).to_s
+      puts begin_date, end_date
+    else
+      begin_date = "01/04/"+(y.to_i-1).to_s
+      end_date = "31/03/"+y.to_s
+      puts begin_date, end_date
+      # condition << "? BETWEEN "
+    end
+    return "? BETWEEN '" + begin_date + "' AND '" + end_date + "'"
+  end
+
 end

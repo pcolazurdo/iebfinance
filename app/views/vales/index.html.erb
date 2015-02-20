@@ -42,6 +42,12 @@
         </td>
       </tr>
     <% end %>
+      <tr class="total-row">
+        <td colspan="5" class="total-row total-row-title"> Total </td>
+        <td class="total-row total-column"><%= @totals[:SumaPesos]  %></td>
+        <td class="total-row total-column"><%= @totals[:SumaDolares] %></td>
+        <td colspan="4"></td>
+      </tr>
   </tbody>
 </table>
 
