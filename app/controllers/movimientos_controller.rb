@@ -1,16 +1,23 @@
+require 'date'
+
 class MovimientosController < ApplicationController
   before_action :set_movimiento, only: [:show, :edit, :update, :destroy]
 
-  list
+  # list(:movimientos)
 
   # GET /movimientos
   # GET /movimientos.json
+
   def index
     params[:q] ||= {}
-    created_at_gt = params[:q][:created_at_gt]
-    @movimientos = Movimiento.all
+    puts params[:q]['fecha_gteq(1i)'], params[:q]['fecha_gteq(2i)'], params[:q]['fecha_gteq(3i)']
+    @fecha_gteq = Date.new(params[:q]['fecha_gteq(1i)'].to_i, params[:q]['fecha_gteq(2i)'].to_i, params[:q]['fecha_gteq(3i)'].to_i )
+    @fecha_lteq = Date.new(params[:q]['fecha_lteq(1i)'].to_i, params[:q]['fecha_lteq(2i)'].to_i, params[:q]['fecha_lteq(3i)'].to_i )
+
     @totals = self.totals
     @search = Movimiento.ransack(params[:q])
+    @movimientos = @search.result(distinct: true).includes(:cuenta)
+    puts "Index"
   end
 
   # GET /movimientos/1
@@ -21,8 +28,13 @@ class MovimientosController < ApplicationController
 
   def totals
     hash = {}
-    hash[:SumaPesos]  = Movimiento.where(["fecha BETWEEN ? AND ?", "01/01/2015", "31/12/2015"]).sum(:IngresoPesos)
-    puts "Totals", hash[:SumaPesos]
+    puts "Totals:", @fecha_gteq, @fecha_lteq
+    hash[:SumaIngresoPesos]  = Movimiento.where(["fecha BETWEEN ? AND ?", @fecha_gteq, @fecha_lteq]).sum(:IngresoPesos)
+    hash[:SumaIngresoDolares]  = Movimiento.where(["fecha BETWEEN ? AND ?", @fecha_gteq, @fecha_lteq]).sum(:IngresoDolares)
+    hash[:SumaEgresoPesos]  = Movimiento.where(["fecha BETWEEN ? AND ?", @fecha_gteq, @fecha_lteq]).sum(:EgresoPesos)
+    hash[:SumaEgresoDolares]  = Movimiento.where(["fecha BETWEEN ? AND ?", @fecha_gteq, @fecha_lteq]).sum(:EgresoDolares)
+    # hash[:SumaPesos]  = @movimientos.sum(:IngresoPesos) # NOT WORKING!
+
     # hash[:credit] = self.journal_entry_items.sum(:credit)
     # hash[:balance_debit] = 0.0
     # hash[:balance_credit] = 0.0

@@ -1,3 +1,3 @@
 class Movimiento < ActiveRecord::Base
-  belongs_to :Cuenta
+  belongs_to :cuenta
 end

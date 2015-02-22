@@ -1,5 +1,7 @@
 ActiveList:
 Installation ...
+-Disabled due to the use of ransack
+
 
 Usage:
   Let's assume you're adding into cuentas_controller.rb a listing of movimientos. To do so you have to specify routes.rb as follows:
@@ -12,7 +14,7 @@ Usage:
       get :list
     end
   end
-  
+
   resources :cuentas do
     collection do
       get :list
@@ -30,5 +32,9 @@ https://github.com/TrevorS/bootstrap3-datetimepicker-rails
 Forms:
 https://github.com/bootstrap-ruby/rails-bootstrap-forms
 
+Search Forms:
+ransack
 
 Samples from Ekylibre
+
+Added quiet_assets
