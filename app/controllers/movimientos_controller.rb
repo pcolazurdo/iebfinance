@@ -11,8 +11,10 @@ class MovimientosController < ApplicationController
   def index
     params[:q] ||= {}
     puts params[:q]['fecha_gteq(1i)'], params[:q]['fecha_gteq(2i)'], params[:q]['fecha_gteq(3i)']
-    @fecha_gteq = Date.new(params[:q]['fecha_gteq(1i)'].to_i, params[:q]['fecha_gteq(2i)'].to_i, params[:q]['fecha_gteq(3i)'].to_i )
-    @fecha_lteq = Date.new(params[:q]['fecha_lteq(1i)'].to_i, params[:q]['fecha_lteq(2i)'].to_i, params[:q]['fecha_lteq(3i)'].to_i )
+    if params[:q]['fecha_gteq(1i)'].to_i > 0
+      @fecha_gteq = Date.new(params[:q]['fecha_gteq(1i)'].to_i, params[:q]['fecha_gteq(2i)'].to_i, params[:q]['fecha_gteq(3i)'].to_i )
+      @fecha_lteq = Date.new(params[:q]['fecha_lteq(1i)'].to_i, params[:q]['fecha_lteq(2i)'].to_i, params[:q]['fecha_lteq(3i)'].to_i )
+    end
 
     @totals = self.totals
     @search = Movimiento.ransack(params[:q])
