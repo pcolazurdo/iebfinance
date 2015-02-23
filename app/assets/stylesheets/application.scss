@@ -40,6 +40,25 @@ span.icon {
 }
 
 
+/* Move down content because we have a fixed navbar that is 50px tall */
+body {
+  padding-top: 50px;
+}
+
+
+/*
+* Global add-ons
+*/
+
+.sub-header {
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+/*
+* Top navigation
+* Hide default border to remove 1px line.
+*/
 .navbar-fixed-top {
   border: 0;
 }
@@ -99,11 +118,6 @@ span.icon {
     padding-left: 40px;
   }
 }
-
-.main .page-notice {
-  margin-top: 30px;
-}
-
 .main .page-header {
   margin-top: 0;
 }
@@ -127,9 +141,6 @@ span.icon {
   display: inline-block;
   border-radius: 50%;
 }
-
-
-
 
 
 
