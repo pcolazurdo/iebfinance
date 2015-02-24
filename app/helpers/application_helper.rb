@@ -874,14 +874,14 @@ module ApplicationHelper
   end
 
   def pesos(num)
-    num = 0 if num.nil?
+    num = 0 if num.nil?    
     a = number_to_currency(num, unit: "$", separator: ",", delimiter: "", negative_format: "(-%u%n)", precision: 2)
-    return a
+    return a.html_safe
   end
   def dolares(num)
-    num = 0 if num.nil? 
+    num = 0 if num.nil?
     a = number_to_currency(num, unit: "U$S", separator: ",", delimiter: "", negative_format: "(-%u%n)", precision: 2)
-    return a
+    return a.html_safe
   end
 
 end
