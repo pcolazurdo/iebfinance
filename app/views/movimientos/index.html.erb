@@ -80,14 +80,14 @@
             </td>
           </tr>
         <% end %>
-          <tr class="total-row">
-            <td colspan="2" class="total-row total-row-title"> Total </td>
-            <td class="total-row total-column"><%= pesos(@totals[:SumaIngresoPesos])  %></td>
-            <td class="total-row total-column"><%= dolares(@totals[:SumaIngresoDolares]) %></td>
-            <td class="total-row total-column"><%= pesos(@totals[:SumaEgresoPesos])  %></td>
-            <td class="total-row total-column"><%= dolares(@totals[:SumaEgresoDolares]) %></td>
-            <td colspan="5"></td>
-          </tr>
+        <tr class="total-row">
+          <td colspan="2" class="total-row total-row-title"> Total </td>
+          <td class="total-row total-column"><%= pesos(@totals[:SumaIngresoPesos])  %></td>
+          <td class="total-row total-column"><%= dolares(@totals[:SumaIngresoDolares]) %></td>
+          <td class="total-row total-column"><%= pesos(@totals[:SumaEgresoPesos])  %></td>
+          <td class="total-row total-column"><%= dolares(@totals[:SumaEgresoDolares]) %></td>
+          <td colspan="5"></td>
+        </tr>
       </tbody>
     </table>
   </div>

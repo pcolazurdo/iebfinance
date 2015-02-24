@@ -16,6 +16,18 @@ class OfrendasController < ApplicationController
   # GET /ofrendas.json
   def index
     @ofrendas = Ofrenda.all
+    @totals = self.totals
+  end
+
+  def totals
+    hash = {}
+
+    if !@ofrendas.nil?
+      hash[:SumaOfrendaPesos] = @ofrendas.sum(:MontoPesos)
+      hash[:SumaOfrendaDolares] = @ofrendas.sum(:MontoDolares)
+    end
+
+    return hash
   end
 
   # GET /ofrendas/1
