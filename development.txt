@@ -1,6 +1,9 @@
 Heroku:
 Had to remove secrets.yml from the .gitignore and modified to make it a little bit more secure
 Modifed the Procfile to start rails with -p $PORT
+Created config\initializers\secret_token.rb
+Added heroku:config set SECRET_TOKEN='xxx' using rake secret to create xxx
+
 
 
 ActiveList:
