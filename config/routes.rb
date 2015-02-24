@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get '/', to: redirect('/movimientos')
+
   concern :list do
     get :list, on: :collection
   end
