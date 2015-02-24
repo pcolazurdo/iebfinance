@@ -3,7 +3,7 @@
 <h1> Movimientos</h1>
 
 
-<div data-hook="movimientos-index-search" >
+<div class="table-filter" data-hook="movimientos-index-search" >
   <%= search_form_for @search do |f| %>
     <div class="row">
       <div class="col-md-8">
@@ -11,13 +11,13 @@
           <div class="form-group">
             <div class="col-md-5">
               <%= label_tag :q_fecha_gteq %>
-              <div class="input-group">
+              <div class="field input-group">
                 <%= f.date_select :fecha_gteq, :class => 'form-control', :value => params[:q][:fecha_gteq] %>
               </div>
             </div>
             <div class="col-md-5">
               <%= label_tag :q_fecha_lteq %>
-              <div class="input-group">
+              <div class="field input-group">
                 <%= f.date_select :fecha_lteq, :class => 'form-control', :value => params[:q][:fecha_lteq] %>
               </div>
             </div>
@@ -28,7 +28,7 @@
     <div class="row">
       <div class="col-md-8">
         <div data-hook="movimientos-index-search" class="form-actions">
-          <%= f.submit %>
+          <%= button "Buscar", 'search', "submit", :class => "button-search" %>
         </div>
       </div>
     </div>
@@ -38,57 +38,59 @@
 
 
 
-<div class="col-md-6">
-  <table class="table table-hover table-stripped table-condensed table-bordered">
-    <thead>
-      <tr>
-        <th>Fecha</th>
-        <th>Cuenta</th>
-        <th>Ingreso Pesos</th>
-        <th>Ingreso Dólares</th>
-        <th>Egreso Pesos</th>
-        <th>Egreso Dólares</th>
-        <th>Comprobante</th>
-        <th>Comentario</th>
-        <th colspan="3"></th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <% @movimientos.each do |movimiento| %>
+<div class="col-md-12 col-xs-12 col-sm-12" style="padding-top: 10px">
+  <div class=table-responsive>
+    <table class="table table-hover table-stripped table-condensed table-bordered">
+      <thead>
         <tr>
-          <td><%= movimiento.fecha %></td>
-          <td><%= movimiento.cuenta.nombre %></td>
-          <td><%= movimiento.IngresoPesos %></td>
-          <td><%= movimiento.IngresoDolares %></td>
-          <td><%= movimiento.EgresoPesos %></td>
-          <td><%= movimiento.EgresoDolares %></td>
-          <td><%= movimiento.Comprobante %></td>
-          <td><%= movimiento.comentario %></td>
-          <td><%= link_to movimiento, class: "btn btn-default" do %>
-            <span class="glyphicon glyphicon-search"></span> Ver
-            <% end %>
-          </td>
-          <td><%= link_to edit_movimiento_path(movimiento), class: "btn btn-default" do %>
-            <span class="glyphicon glyphicon-edit"></span> Modificar
-            <% end %>
-          </td>
-          <td><%= link_to movimiento, method: :delete, data: { confirm: 'Está seguro?' }, class: "btn btn-default" do %>
-            <span class="glyphicon glyphicon-remove"></span> Borrar
-            <% end %>
-          </td>
+          <th>Fecha</th>
+          <th>Cuenta</th>
+          <th>Ingreso Pesos</th>
+          <th>Ingreso Dólares</th>
+          <th>Egreso Pesos</th>
+          <th>Egreso Dólares</th>
+          <th>Comprobante</th>
+          <th>Comentario</th>
+          <th colspan="3"></th>
         </tr>
-      <% end %>
-        <tr class="total-row">
-          <td colspan="2" class="total-row total-row-title"> Total </td>
-          <td class="total-row total-column"><%= @totals[:SumaIngresoPesos]  %></td>
-          <td class="total-row total-column"><%= @totals[:SumaIngresoDolares] %></td>
-          <td class="total-row total-column"><%= @totals[:SumaEgresoPesos]  %></td>
-          <td class="total-row total-column"><%= @totals[:SumaEgresoDolares] %></td>
-          <td colspan="5"></td>
-        </tr>
-    </tbody>
-  </table>
+      </thead>
+
+      <tbody>
+        <% @movimientos.each do |movimiento| %>
+          <tr>
+            <td><%= movimiento.fecha %></td>
+            <td><%= movimiento.cuenta.nombre %></td>
+            <td class="monto"><%= pesos(movimiento.IngresoPesos) %></td>
+            <td class="monto"><%= dolares(movimiento.IngresoDolares) %></td>
+            <td class="monto"><%= pesos(movimiento.EgresoPesos) %></td>
+            <td class="monto"><%= dolares(movimiento.EgresoDolares) %></td>
+            <td><%= movimiento.Comprobante %></td>
+            <td><%= movimiento.comentario %></td>
+            <td><%= link_to movimiento, class: "btn btn-default" do %>
+              <span class="glyphicon glyphicon-search"></span> Ver
+              <% end %>
+            </td>
+            <td><%= link_to edit_movimiento_path(movimiento), class: "btn btn-default" do %>
+              <span class="glyphicon glyphicon-edit"></span> Modificar
+              <% end %>
+            </td>
+            <td><%= link_to movimiento, method: :delete, data: { confirm: 'Está seguro?' }, class: "btn btn-default" do %>
+              <span class="glyphicon glyphicon-remove"></span> Borrar
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+          <tr class="total-row">
+            <td colspan="2" class="total-row total-row-title"> Total </td>
+            <td class="total-row total-column"><%= pesos(@totals[:SumaIngresoPesos])  %></td>
+            <td class="total-row total-column"><%= dolares(@totals[:SumaIngresoDolares]) %></td>
+            <td class="total-row total-column"><%= pesos(@totals[:SumaEgresoPesos])  %></td>
+            <td class="total-row total-column"><%= dolares(@totals[:SumaEgresoDolares]) %></td>
+            <td colspan="5"></td>
+          </tr>
+      </tbody>
+    </table>
+  </div>
   <br>
 </div>
 

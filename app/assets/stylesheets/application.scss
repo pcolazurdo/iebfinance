@@ -23,6 +23,24 @@
 @import 'bootstrap-datetimepicker';
 
 
+td.monto {
+  text-align: right;
+}
+
+.field {
+  padding: 10x 0;
+}
+
+.button-search {
+  padding: 8px 15px;
+  border: none;
+  background-color: #5498da;
+  color: white;
+  text-transform: uppercase;
+  font-weight: 600 !important;
+  white-space: nowrap;
+}
+
 span.icon {
   font-family: 'Glyphicons Halflings';
 }
@@ -207,4 +225,58 @@ body {
   padding: 9px 15px;
   border-top: 1px solid #e5e5e5;
   display: block;
+}
+
+// Added from spree
+
+table.table {
+  thead {
+    th {
+      text-transform: uppercase;
+      font-size: $font-size-base - 3px;
+      padding-top: 4px;
+      padding-bottom: 4px;
+      vertical-align: middle;
+      letter-spacing: 1px;
+
+      a {
+        .glyphicon {
+          padding-left: 5px;
+        }
+      }
+    }
+  }
+  tbody {
+    tr {
+      td {
+        vertical-align: middle;
+        .filterable {
+          font-size: 0.8em;
+          margin-left: 0.2em;
+          color: white; // hidden, but space is reserved for the icon
+          cursor: pointer;
+        }
+      }
+      &:hover td .filterable {
+        color: #666;
+      }
+    }
+  }
+}
+
+.table-active-filters {
+  display: none;
+  margin: -0.5em 0 0.9em 0;
+  .label {
+    margin-right: 0.5em;
+    font-size: 85%;
+    &:hover {
+      opacity: 0.8;
+    }
+    span.icon {
+      margin: 0.3em 0 0 0.6em;
+      font-size: 80%;
+      cursor: pointer;
+    }
+  }
 }

@@ -864,4 +864,24 @@ module ApplicationHelper
     return "? BETWEEN '" + begin_date + "' AND '" + end_date + "'"
   end
 
+
+  def button(text, icon_name = nil, button_type = 'submit', options={})
+    if icon_name
+      icon = content_tag(:span, '', class: "icon icon-#{icon_name}")
+      text.insert(0, icon + ' ')
+    end
+    button_tag(text.html_safe, options.merge(type: button_type, class: "btn btn-primary #{options[:class]}"))
+  end
+
+  def pesos(num)
+    num = 0 if num.nil?
+    a = number_to_currency(num, unit: "$", separator: ",", delimiter: "", negative_format: "(-%u%n)", precision: 2)
+    return a
+  end
+  def dolares(num)
+    num = 0 if num.nil? 
+    a = number_to_currency(num, unit: "U$S", separator: ",", delimiter: "", negative_format: "(-%u%n)", precision: 2)
+    return a
+  end
+
 end

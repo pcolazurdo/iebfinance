@@ -16,10 +16,9 @@ class MovimientosController < ApplicationController
       @fecha_lteq = Date.new(params[:q]['fecha_lteq(1i)'].to_i, params[:q]['fecha_lteq(2i)'].to_i, params[:q]['fecha_lteq(3i)'].to_i )
     end
 
-    @totals = self.totals
     @search = Movimiento.ransack(params[:q])
     @movimientos = @search.result(distinct: true).includes(:cuenta)
-    puts "Index"
+    @totals = self.totals
   end
 
   # GET /movimientos/1
@@ -30,11 +29,19 @@ class MovimientosController < ApplicationController
 
   def totals
     hash = {}
-    puts "Totals:", @fecha_gteq, @fecha_lteq
-    hash[:SumaIngresoPesos]  = Movimiento.where(["fecha BETWEEN ? AND ?", @fecha_gteq, @fecha_lteq]).sum(:IngresoPesos)
-    hash[:SumaIngresoDolares]  = Movimiento.where(["fecha BETWEEN ? AND ?", @fecha_gteq, @fecha_lteq]).sum(:IngresoDolares)
-    hash[:SumaEgresoPesos]  = Movimiento.where(["fecha BETWEEN ? AND ?", @fecha_gteq, @fecha_lteq]).sum(:EgresoPesos)
-    hash[:SumaEgresoDolares]  = Movimiento.where(["fecha BETWEEN ? AND ?", @fecha_gteq, @fecha_lteq]).sum(:EgresoDolares)
+    # hash[:SumaIngresoPesos]  = Movimiento.where(condition).sum(:IngresoPesos)
+    # hash[:SumaIngresoDolares]  = Movimiento.where(condition).sum(:IngresoDolares)
+    # hash[:SumaEgresoPesos]  = Movimiento.where(condition).sum(:EgresoPesos)
+    # hash[:SumaEgresoDolares]  = Movimiento.where(condition).sum(:EgresoDolares)
+
+    if !@search.nil?
+      hash[:SumaIngresoPesos] = @search.result(distinct: true).includes(:cuenta).sum(:IngresoPesos)
+      hash[:SumaIngresoDolares] = @search.result(distinct: true).includes(:cuenta).sum(:IngresoDolares)
+      hash[:SumaEgresoPesos] = @search.result(distinct: true).includes(:cuenta).sum(:EgresoPesos)
+      hash[:SumaEgresoDolares] = @search.result(distinct: true).includes(:cuenta).sum(:EgresoDolares)
+    end
+
+
     # hash[:SumaPesos]  = @movimientos.sum(:IngresoPesos) # NOT WORKING!
 
     # hash[:credit] = self.journal_entry_items.sum(:credit)
