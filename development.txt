@@ -1,3 +1,8 @@
+Heroku:
+Had to remove secrets.yml from the .gitignore and modified to make it a little bit more secure
+Modifed the Procfile to start rails with -p $PORT
+
+
 ActiveList:
 Installation ...
 -Disabled due to the use of ransack
