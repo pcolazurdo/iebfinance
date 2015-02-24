@@ -23,8 +23,8 @@ class OfrendasController < ApplicationController
     hash = {}
 
     if !@ofrendas.nil?
-      hash[:SumaOfrendaPesos] = @ofrendas.sum(:MontoPesos)
-      hash[:SumaOfrendaDolares] = @ofrendas.sum(:MontoDolares)
+      hash[:SumaOfrendaPesos] = @ofrendas.sum(:montoPesos)
+      hash[:SumaOfrendaDolares] = @ofrendas.sum(:montoDolares)
     end
 
     return hash

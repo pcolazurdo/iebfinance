@@ -2,9 +2,9 @@ class CuentasController < ApplicationController
   before_action :set_cuenta, only: [:show, :edit, :update, :destroy]
 
 
-  list
+  # list
 
-  list(:movimientos, conditions: ["? = cuenta_id", 'params[:id]'.c])
+  # list(:movimientos, conditions: ["? = cuenta_id", 'params[:id]'.c])
 
   # GET /cuentas
   # GET /cuentas.json
