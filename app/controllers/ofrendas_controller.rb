@@ -14,9 +14,26 @@ class OfrendasController < ApplicationController
 
   # GET /ofrendas
   # GET /ofrendas.json
-  def index
+
+  def update_table
+    # @ofrenda = Ofrenda.new
     @ofrendas = Ofrenda.all
     @totals = self.totals
+
+    respond_to do |format|
+      format.js
+    end
+  end
+
+
+  def index
+    @ofrenda = Ofrenda.new
+    @ofrendas = Ofrenda.all
+    @totals = self.totals
+    respond_to do |format|
+      format.js
+      format.html
+    end
   end
 
   def totals
@@ -54,9 +71,11 @@ class OfrendasController < ApplicationController
       if @ofrenda.save
         format.html { redirect_to @ofrenda, notice: 'Ofrenda was successfully created.' }
         format.json { render :show, status: :created, location: @ofrenda }
+        format.js
       else
         format.html { render :new }
         format.json { render json: @ofrenda.errors, status: :unprocessable_entity }
+        format.js
       end
     end
   end

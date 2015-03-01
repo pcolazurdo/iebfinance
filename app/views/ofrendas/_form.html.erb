@@ -1,4 +1,4 @@
-<%= bootstrap_form_for(@ofrenda) do |f| %>
+<%= bootstrap_form_for(@ofrenda, remote: true) do |f| %>
   <% if @ofrenda.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@ofrenda.errors.count, "error") %> prohibited this ofrenda from being saved:</h2>
@@ -11,32 +11,59 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%# <%= f.text_field :cuenta_id %>
-    <%= f.collection_select(:cuenta_id, Cuenta.all, :id, :nombre) %> <%#Modified for bootstrap_form_for %>
+  <div class="row same-height">
+    <div class="col-md-4">
+      <div class="field">
+        <%= f.date_select :fecha %>
+      </div>
+    </div>
+    <div class="col-md-2" style="align:right">
+      <div class="actions" id="form-button">
+        <%= f.submit  %>
+      </div>
+    </div>
   </div>
-  <div class="field">
-    <%= f.text_field :miembro_id %>
+  <div class="row">
+    <div class="col-md-3">
+      <div class="field">
+        <%= f.collection_select(:cuenta_id, Cuenta.all, :id, :nombre) %> <%#Modified for bootstrap_form_for %>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="field">
+        <%= f.text_field :miembro_id %>
+      </div>
+    </div>
   </div>
-  <div class="field">
-    <%= f.date_select :fecha %>
+  <div class="row">
+    <div class="col-md-3">
+      <div class="field">
+        <%= f.text_field :montoPesos %>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="field">
+        <%= f.text_field :montoDolares %>
+      </div>
+    </div>
   </div>
-  <div class="field">
-    <%= f.text_field :montoPesos %>
+  <div class="row">
+    <div class="col-md-3">
+      <div class="field">
+        <%= f.text_field :esCheque %>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="field">
+        <%= f.text_field :idcheque %>
+      </div>
+    </div>
   </div>
-  <div class="field">
-    <%= f.text_field :montoDolares %>
-  </div>
-  <div class="field">
-    <%= f.text_field :esCheque %>
-  </div>
-  <div class="field">
-    <%= f.text_field :idcheque %>
-  </div>
-  <div class="field">
-    <%= f.text_area :comentario %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="row">
+    <div class="col-md-3">
+      <div class="field">
+        <%= f.text_area :comentario %>
+      </div>
+    </div>
   </div>
 <% end %>

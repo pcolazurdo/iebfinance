@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   end
   #resources :cuentas
   resources :cuentas do
+    # get :update_table => 'ofrendas#update_table', as: 'update_table'
     collection do
       get :list
     end
