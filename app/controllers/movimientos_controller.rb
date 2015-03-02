@@ -13,7 +13,7 @@ class MovimientosController < ApplicationController
     end
 
     @search = Movimiento.ransack(params[:q])
-    @movimientos = @search.result(distinct: true).includes(:cuenta)
+    @movimientos = @search.result(distinct: true).includes(:cuenta).order(id: :desc)
     @totals = self.totals
   end
 
@@ -91,7 +91,7 @@ class MovimientosController < ApplicationController
     respond_to do |format|
       if @movimiento.update(movimiento_params)
         format.html { redirect_to @movimiento, notice: 'Movimiento was successfully updated.' }
-        format.json { render :show, status: :ok, location: @movimiento }        
+        format.json { render :show, status: :ok, location: @movimiento }
       else
         format.html { render :edit }
         format.json { render json: @movimiento.errors, status: :unprocessable_entity }

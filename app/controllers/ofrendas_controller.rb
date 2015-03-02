@@ -18,7 +18,7 @@ class OfrendasController < ApplicationController
 
   def update_table
     # @ofrenda = Ofrenda.new
-    @ofrendas = Ofrenda.all
+    @ofrendas = Ofrenda.all.order(id: :desc)
     @totals = self.totals
   end
 
