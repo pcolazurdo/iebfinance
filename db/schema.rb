@@ -11,7 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150218230112) do
+ActiveRecord::Schema.define(version: 20150302201156) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "cuenta", force: :cascade do |t|
     t.string   "cuenta"
@@ -43,6 +46,27 @@ ActiveRecord::Schema.define(version: 20150218230112) do
     t.datetime "updated_at",  null: false
   end
 
+  create_table "efectivos", force: :cascade do |t|
+    t.date     "fecha"
+    t.decimal  "Pesos2"
+    t.decimal  "Pesos5"
+    t.decimal  "Pesos10"
+    t.decimal  "Pesos20"
+    t.decimal  "Pesos50"
+    t.decimal  "Pesos100"
+    t.decimal  "PesosMonedas"
+    t.decimal  "Dolares1"
+    t.decimal  "Dolares2"
+    t.decimal  "Dolares5"
+    t.decimal  "Dolares10"
+    t.decimal  "Dolares20"
+    t.decimal  "Dolares50"
+    t.decimal  "Dolares100"
+    t.decimal  "DolaresMonedas"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
   create_table "miembros", force: :cascade do |t|
     t.string   "idFiscal"
     t.string   "nombre"
@@ -67,7 +91,7 @@ ActiveRecord::Schema.define(version: 20150218230112) do
     t.integer  "cuenta_id"
   end
 
-  add_index "movimientos", ["cuenta_id"], name: "index_movimientos_on_cuenta_id"
+  add_index "movimientos", ["cuenta_id"], name: "index_movimientos_on_cuenta_id", using: :btree
 
   create_table "ofrendas", force: :cascade do |t|
     t.date     "fecha"
@@ -82,8 +106,8 @@ ActiveRecord::Schema.define(version: 20150218230112) do
     t.integer  "miembro_id"
   end
 
-  add_index "ofrendas", ["cuenta_id"], name: "index_ofrendas_on_cuenta_id"
-  add_index "ofrendas", ["miembro_id"], name: "index_ofrendas_on_miembro_id"
+  add_index "ofrendas", ["cuenta_id"], name: "index_ofrendas_on_cuenta_id", using: :btree
+  add_index "ofrendas", ["miembro_id"], name: "index_ofrendas_on_miembro_id", using: :btree
 
   create_table "vales", force: :cascade do |t|
     t.string   "cuenta"
@@ -99,6 +123,6 @@ ActiveRecord::Schema.define(version: 20150218230112) do
     t.integer  "cuenta_id"
   end
 
-  add_index "vales", ["cuenta_id"], name: "index_vales_on_cuenta_id"
+  add_index "vales", ["cuenta_id"], name: "index_vales_on_cuenta_id", using: :btree
 
 end

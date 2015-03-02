@@ -1,0 +1,37 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  fecha: 2015-03-02
+  Pesos2: 9.99
+  Pesos5: 9.99
+  Pesos10: 9.99
+  Pesos20: 9.99
+  Pesos50: 9.99
+  Pesos100: 9.99
+  PesosMonedas: 9.99
+  Dolares1: 9.99
+  Dolares2: 9.99
+  Dolares5: 9.99
+  Dolares10: 9.99
+  Dolares20: 9.99
+  Dolares50: 9.99
+  Dolares100: 9.99
+  DolaresMonedas: 9.99
+
+two:
+  fecha: 2015-03-02
+  Pesos2: 9.99
+  Pesos5: 9.99
+  Pesos10: 9.99
+  Pesos20: 9.99
+  Pesos50: 9.99
+  Pesos100: 9.99
+  PesosMonedas: 9.99
+  Dolares1: 9.99
+  Dolares2: 9.99
+  Dolares5: 9.99
+  Dolares10: 9.99
+  Dolares20: 9.99
+  Dolares50: 9.99
+  Dolares100: 9.99
+  DolaresMonedas: 9.99

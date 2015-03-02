@@ -20,9 +20,7 @@ class ValesController < ApplicationController
   end
 
   def totals
-    hash = {}
-    hash[:SumaPesos]  = Vale.where("fechaRendicion IS NOT NULL").sum(:MontoPesos)
-    hash[:SumaDolares]  = Vale.where("fechaRendicion IS NOT NULL").sum(:MontoDolares)
+    hash = calcular_vales()
     return hash
   end
 

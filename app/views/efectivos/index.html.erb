@@ -1,0 +1,57 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Efectivos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fecha</th>
+      <th>Pesos2</th>
+      <th>Pesos5</th>
+      <th>Pesos10</th>
+      <th>Pesos20</th>
+      <th>Pesos50</th>
+      <th>Pesos100</th>
+      <th>Pesosmonedas</th>
+      <th>Dolares1</th>
+      <th>Dolares2</th>
+      <th>Dolares5</th>
+      <th>Dolares10</th>
+      <th>Dolares20</th>
+      <th>Dolares50</th>
+      <th>Dolares100</th>
+      <th>Dolaresmonedas</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @efectivos.each do |efectivo| %>
+      <tr>
+        <td><%= efectivo.fecha %></td>
+        <td><%= efectivo.Pesos2 %></td>
+        <td><%= efectivo.Pesos5 %></td>
+        <td><%= efectivo.Pesos10 %></td>
+        <td><%= efectivo.Pesos20 %></td>
+        <td><%= efectivo.Pesos50 %></td>
+        <td><%= efectivo.Pesos100 %></td>
+        <td><%= efectivo.PesosMonedas %></td>
+        <td><%= efectivo.Dolares1 %></td>
+        <td><%= efectivo.Dolares2 %></td>
+        <td><%= efectivo.Dolares5 %></td>
+        <td><%= efectivo.Dolares10 %></td>
+        <td><%= efectivo.Dolares20 %></td>
+        <td><%= efectivo.Dolares50 %></td>
+        <td><%= efectivo.Dolares100 %></td>
+        <td><%= efectivo.DolaresMonedas %></td>
+        <td><%= link_to 'Show', efectivo %></td>
+        <td><%= link_to 'Edit', edit_efectivo_path(efectivo) %></td>
+        <td><%= link_to 'Destroy', efectivo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Efectivo', new_efectivo_path %>

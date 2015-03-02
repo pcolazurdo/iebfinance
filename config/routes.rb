@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :efectivos
+
   get '/', to: redirect('/movimientos')
 
   concern :list do

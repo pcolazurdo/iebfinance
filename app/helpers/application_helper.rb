@@ -874,14 +874,67 @@ module ApplicationHelper
   end
 
   def pesos(num)
-    num = 0 if num.nil?    
+    num = 0 if num.nil?
     a = number_to_currency(num, unit: "$", separator: ",", delimiter: "", negative_format: "(-%u%n)", precision: 2)
     return a.html_safe
   end
+
   def dolares(num)
     num = 0 if num.nil?
     a = number_to_currency(num, unit: "U$S", separator: ",", delimiter: "", negative_format: "(-%u%n)", precision: 2)
     return a.html_safe
   end
+
+  def calcular_saldos_movimientos()
+    hash = {}
+    hash[:SumaIngresoPesos]  = Movimiento.all.sum(:IngresoPesos) || 0.0
+    hash[:SumaIngresoDolares]  = Movimiento.all.sum(:IngresoDolares) || 0.0
+    hash[:SumaEgresoPesos]  = Movimiento.all.sum(:EgresoPesos) || 0.0
+    hash[:SumaEgresoDolares]  = Movimiento.all.sum(:EgresoDolares) || 0.0
+    hash[:SaldoPesos]  = hash[:SumaIngresoPesos] - hash[:SumaEgresoPesos]
+    hash[:SaldoDolares]  = hash[:SumaIngresoDolares] - hash[:SumaEgresoDolares]
+  end
+
+  def calcular_efectivo(fecha)
+
+    efectivo = {}
+
+    if not fecha.nil?
+      e = Efectivo.where("date_trunc('day',fecha) = ?", fecha.to_date)
+      if e.count != 1
+        puts "calcular_efectivo.error = count: ", e.count
+      else
+        ef = e.take()
+        efectivo[:Pesos] = (ef.Pesos2 || 0.0) * 2 + (ef.Pesos5 || 0.0) * 5 + (ef.Pesos10 || 0.0) * 10 + (ef.Pesos20 || 0.0) * 20 + (ef.Pesos50 || 0.0) * 50 + (ef.Pesos100 || 0.0) * 100 + (ef.PesosMonedas || 0.0)
+        efectivo[:Dolares] = (ef.Dolares1 || 0.0) * 1 + (ef.Dolares2 || 0.0) * 2 + (ef.Dolares5 || 0.0) * 5 + (ef.Dolares10 || 0.0) * 10 + (ef.Dolares20 || 0.0) * 20 + (ef.Dolares50 || 0.0) * 50 + (ef.Dolares100 || 0.0) * 100 + (ef.DolaresMonedas || 0.0)
+      end
+    else
+      puts "calcular_efectivo.error = fecha is nil"
+    end
+    return efectivo
+  end
+
+  def calcular_vales()
+    hash = {}
+    hash[:SumaPesos]  = Vale.where("fechaRendicion IS NOT NULL").sum(:MontoPesos) || 0.0
+    hash[:SumaDolares]  = Vale.where("fechaRendicion IS NOT NULL").sum(:MontoDolares) || 0.0
+    return hash
+  end
+
+  def calcular_arqueo(fecha)
+    diferencia = {}
+    if not fecha.nil?
+      efectivo = calcular_efectivo(fecha)
+      saldoMovimientos = calcular_saldos_movimientos()
+      saldoVales = calcular_vales()
+
+      diferencia[:Pesos] = saldoMovimientos[:SumaPesos] - saldoVales[:SumaPesos] - efectivo[:Pesos]
+      diferencia[:Dolares] = saldoMovimientos[:SumaDolares] - saldoVales[:SumaDolares] - efectivo[:Dolares]
+    else
+      puts "Para calcular el arqueo usted necesita especificar una fecha"
+    end
+    return diferencia
+  end
+
 
 end
