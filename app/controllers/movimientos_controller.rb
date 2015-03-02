@@ -2,13 +2,9 @@ require 'date'
 
 class MovimientosController < ApplicationController
   before_action :set_movimiento, only: [:show, :edit, :update, :destroy]
+  before_action :update_table, only: [:index, :show, :edit, :update, :destroy, :create]
 
-  # list(:movimientos)
-
-  # GET /movimientos
-  # GET /movimientos.json
-
-  def index
+  def update_table
     params[:q] ||= {}
     puts params[:q]['fecha_gteq(1i)'], params[:q]['fecha_gteq(2i)'], params[:q]['fecha_gteq(3i)']
     if params[:q]['fecha_gteq(1i)'].to_i > 0
@@ -19,6 +15,12 @@ class MovimientosController < ApplicationController
     @search = Movimiento.ransack(params[:q])
     @movimientos = @search.result(distinct: true).includes(:cuenta)
     @totals = self.totals
+  end
+
+
+
+  def index
+    self.new
   end
 
   # GET /movimientos/1
@@ -85,6 +87,10 @@ class MovimientosController < ApplicationController
       if @movimiento.update(movimiento_params)
         format.html { redirect_to @movimiento, notice: 'Movimiento was successfully updated.' }
         format.json { render :show, status: :ok, location: @movimiento }
+        format.js {
+          self.new
+          self.update_table
+        }
       else
         format.html { render :edit }
         format.json { render json: @movimiento.errors, status: :unprocessable_entity }

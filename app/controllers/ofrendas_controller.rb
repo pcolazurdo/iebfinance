@@ -18,7 +18,6 @@ class OfrendasController < ApplicationController
 
   def update_table
     # @ofrenda = Ofrenda.new
-    puts "update_table"
     @ofrendas = Ofrenda.all
     @totals = self.totals
   end
@@ -66,8 +65,10 @@ class OfrendasController < ApplicationController
       if @ofrenda.save
         format.html { redirect_to @ofrenda, notice: 'Ofrenda was successfully created.' }
         format.json { render :show, status: :created, location: @ofrenda }
-        format.js { self.new
-          self.update_table }
+        format.js {
+          self.new
+          self.update_table
+        }
       else
         format.html { render :new }
         format.json { render json: @ofrenda.errors, status: :unprocessable_entity }

@@ -1,0 +1,31 @@
+<div class="table-filter" data-hook="movimientos-index-search" >
+  <%= search_form_for @search do |f| %>
+  <div class="row">
+    <div class="col-md-8">
+      <div class="row">
+        <div class="form-group">
+          <div class="col-md-5">
+            <%= label_tag :q_fecha_gteq %>
+            <div class="field input-group">
+              <%= f.date_select :fecha_gteq, :class => 'form-control', :value => params[:q][:fecha_gteq] %>
+            </div>
+          </div>
+          <div class="col-md-5">
+            <%= label_tag :q_fecha_lteq %>
+            <div class="field input-group">
+              <%= f.date_select :fecha_lteq, :class => 'form-control', :value => params[:q][:fecha_lteq] %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-8">
+      <div data-hook="movimientos-index-search" class="form-actions">
+        <%= button "Buscar", 'search', "submit", :class => "button-search" %>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</div>
