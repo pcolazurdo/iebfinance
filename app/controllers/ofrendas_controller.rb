@@ -24,10 +24,7 @@ class OfrendasController < ApplicationController
 
 
   def index
-    self.new
-    # self.update_table
-    # @ofrendas = Ofrenda.all
-    # @totals = self.totals
+    self.new    
   end
 
   def totals
