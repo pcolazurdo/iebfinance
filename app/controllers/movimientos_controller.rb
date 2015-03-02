@@ -73,9 +73,14 @@ class MovimientosController < ApplicationController
       if @movimiento.save
         format.html { redirect_to @movimiento, notice: 'Movimiento was successfully created.' }
         format.json { render :show, status: :created, location: @movimiento }
+        format.js {
+          self.new
+          self.update_table
+        }
       else
         format.html { render :new }
         format.json { render json: @movimiento.errors, status: :unprocessable_entity }
+        format.js
       end
     end
   end
@@ -86,11 +91,7 @@ class MovimientosController < ApplicationController
     respond_to do |format|
       if @movimiento.update(movimiento_params)
         format.html { redirect_to @movimiento, notice: 'Movimiento was successfully updated.' }
-        format.json { render :show, status: :ok, location: @movimiento }
-        format.js {
-          self.new
-          self.update_table
-        }
+        format.json { render :show, status: :ok, location: @movimiento }        
       else
         format.html { render :edit }
         format.json { render json: @movimiento.errors, status: :unprocessable_entity }
