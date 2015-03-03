@@ -13,7 +13,7 @@
       <th>Monto Pesos</th>
       <th>Monto Dólares</th>
       <th>Comentarios</th>
-      <th colspan="3" ></th>
+      <th colspan="4" ></th>
     </tr>
   </thead>
 
@@ -29,15 +29,19 @@
         <td class="monto"><%= vale.montoDolares %></td>
         <td><%= vale.comentario %></td>
         <td><%= link_to vale, class: "btn btn-default" do %>
-          <span class="glyphicon glyphicon-search"></span> Ver
+          <span class="glyphicon glyphicon-search"></span> <span class="hidden-xs hidden-sm"> Ver </span>
           <% end %>
         </td>
         <td><%= link_to edit_vale_path(vale), class: "btn btn-default" do %>
-          <span class="glyphicon glyphicon-edit"></span> Modificar
+          <span class="glyphicon glyphicon-edit"></span> <span class="hidden-xs hidden-sm"> Modificar </span>
           <% end %>
         </td>
         <td><%= link_to vale, method: :delete, data: { confirm: 'Está seguro?' }, class: "btn btn-default" do %>
-          <span class="glyphicon glyphicon-remove"></span> Borrar
+          <span class="glyphicon glyphicon-remove"></span> <span class="hidden-xs hidden-sm"> Borrar </span>
+          <% end %>
+        </td>
+        <td><%= link_to [:rendir, vale] , class: "btn btn-default" do %> 
+          <span class="glyphicon glyphicon-check"></span> <span class="hidden-xs hidden-sm"> Rendir </span>
           <% end %>
         </td>
       </tr>
@@ -46,7 +50,7 @@
         <td colspan="5" class="total-row total-row-title"> Total </td>
         <td class="total-row total-column"><%= @totals[:SumaPesos]  %></td>
         <td class="total-row total-column"><%= @totals[:SumaDolares] %></td>
-        <td colspan="4"></td>
+        <td colspan="5"></td>
       </tr>
   </tbody>
 </table>

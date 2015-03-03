@@ -32,7 +32,12 @@ Rails.application.routes.draw do
 
   resources :miembros
 
-  resources :vales
+  resources :vales do
+    member do
+      get :rendir
+    end
+  end
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -6,3 +6,5 @@ movimientos:
     t.decimal  "EgresoDolares"
     t.string "Comprobante"
   with their lowercase versions
+
+Add yml to create navbar

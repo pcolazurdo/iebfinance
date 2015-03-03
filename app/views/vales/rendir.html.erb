@@ -1,3 +1,5 @@
+<H1> RINDIENDO </H1>
+
 <%= bootstrap_form_for(@vale) do |f| %>
   <% if @vale.errors.any? %>
     <div id="error_explanation">
@@ -12,28 +14,19 @@
   <% end %>
 
   <div class="field">
-    <%= f.collection_select(:cuenta_id, Cuenta.all, :id, :nombre) %> <%#Modified for bootstrap_form_for %>
+    <%= @vale.cuenta_id %>
   </div>
   <div class="field">
-    <%= f.text_field :cuenta %>
+    <%= @vale.responsable %></td>
   </div>
   <div class="field">
-    <%= f.text_field :responsable %>
+    <%= @vale.fechaEmision %>
   </div>
   <div class="field">
-    <%= f.date_select :fechaEmision %>
+    <%= @vale.estado %>
   </div>
-  <!-- <div class="field">
+  <div class="field">
     <%= f.date_select :fechaRendicion %>
-  </div> -->
-  <div class="field">
-    <%= f.text_field :estado %>
-  </div>
-  <div class="field">
-    <%= f.text_field :montoPesos %>
-  </div>
-  <div class="field">
-    <%= f.text_field :montoDolares %>
   </div>
   <div class="field">
     <%= f.text_area :comentario %>

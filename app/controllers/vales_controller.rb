@@ -1,5 +1,5 @@
 class ValesController < ApplicationController
-  before_action :set_vale, only: [:show, :edit, :update, :destroy]
+  before_action :set_vale, only: [:show, :edit, :update, :destroy, :rendir]
 
   # GET /vales
   # GET /vales.json
@@ -20,7 +20,7 @@ class ValesController < ApplicationController
   end
 
   def totals
-    hash = calcular_vales()
+    hash = Vale.calcular_vales
     return hash
   end
 
@@ -58,6 +58,21 @@ class ValesController < ApplicationController
         format.json { render json: @vale.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+
+  def rendir    
+    puts @vale
+    render 'rendir'
+    # respond_to do |format|
+    #   if @vale.update(vale_params)
+    #     format.html { redirect_to @vale, notice: 'Vale was successfully updated.' }
+    #     format.json { render :show, status: :ok, location: @vale }
+    #   else
+    #     format.html { render :edit }
+    #     format.json { render json: @vale.errors, status: :unprocessable_entity }
+    #   end
+    # end
   end
 
   # DELETE /vales/1
