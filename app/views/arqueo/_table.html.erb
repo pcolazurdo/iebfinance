@@ -1,0 +1,68 @@
+<div class="col-md-12 col-xs-12 col-sm-12 " style="padding-top: 10px; padding-left: 0px">
+  <div class="row">
+    <div class="col-md-12 row-title">
+      <span> Arqueo para el día: <%= @arqueo.fecha %> </span>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-3 row-title">
+    </div>
+    <div class="col-md-3 row-title align-right">
+      Pesos
+    </div>
+    <div class="col-md-3 row-title align-right">
+      Dolares
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-3 row-title">
+      Movimientos
+    </div>
+    <div class="col-md-3 row-content align-right">
+      <%= pesos(@arqueo.movimientos[:Pesos]) %>
+    </div>
+    <div class="col-md-3 row-content align-right">
+      <%= pesos(@arqueo.movimientos[:Dolares]) %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-3 row-title">
+      Vales
+    </div>
+
+    <div class="col-md-3 row-content align-right">
+      <%= pesos(@arqueo.vales[:Pesos]) %>
+    </div>
+    <div class="col-md-3 row-content align-right">
+      <%= pesos(@arqueo.vales[:Dolares]) %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-3 row-title">
+      Efectivo
+    </div>
+    <div class="col-md-3 row-content align-right">
+      <%= pesos(@arqueo.efectivo[:Pesos]) %>
+    </div>
+    <div class="col-md-3 row-content align-right">
+      <%= pesos(@arqueo.efectivo[:Dolares]) %>
+    </div>
+  </div>
+
+  <div class="row" style="border-top-style:double">
+    <div class="col-md-3 row-title">
+      Diferencia
+    </div>
+    <div class="col-md-3 row-content align-right">
+      <%= pesos(@arqueo.diferencia[:Pesos]) %>
+    </div>
+    <div class="col-md-3 row-content align-right">
+      <%= pesos(@arqueo.diferencia[:Dolares]) %>
+    </div>
+  </div>
+
+</div>

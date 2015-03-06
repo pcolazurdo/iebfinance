@@ -19,8 +19,8 @@ class Vale < ActiveRecord::Base
 
     def calcular_vales
       hash = {}
-      hash[:SumaPesos]  = Vale.pendientes.sum(:montoPesos) || 0.0
-      hash[:SumaDolares]  = Vale.pendientes.sum(:montoDolares) || 0.0
+      hash[:Pesos]  = Vale.pendientes.sum(:montoPesos) || 0.0
+      hash[:Dolares]  = Vale.pendientes.sum(:montoDolares) || 0.0
       return hash
     end
 

@@ -21,6 +21,8 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import 'bootstrap-datetimepicker';
+@import url(http://fonts.googleapis.com/css?family=Bree+Serif);
+
 
 
 td.monto {
@@ -352,4 +354,20 @@ table.table {
 }
 .col-bottom {
   vertical-align:bottom;
+}
+
+.align-right {
+  text-align: right;
+}
+
+.row-title {
+  font-family: 'Bree Serif', Serif, Helvetica, Arial, sans-serif;
+  font-size: 22px;
+  font-weight: normal;
+}
+
+.row-content {
+  font-family: 'Bree Serif', Serif, Helvetica, Arial, sans-serif;
+  font-size: 18px;
+  font-weight: normal;
 }

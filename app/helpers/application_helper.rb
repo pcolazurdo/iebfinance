@@ -900,5 +900,21 @@ module ApplicationHelper
     return diferencia
   end
 
+  # def arqueo(fecha)
+  #   Arqueo = Struct.new :efectivo, :movimientos, :vales, :diferencia
+  #   arqueo = Arqueo.new
+  #   arqueo.diferencia = {}
+  #   if not fecha.nil?
+  #     arqueo.efectivo = Efectivo.calcular_efectivo(fecha)
+  #     arqueo.movimientos = Movimiento.calcular_saldos_movimientos()
+  #     arqueo.vales = Vale.calcular_vales()
+  #
+  #     arqueo.diferencia[:Pesos] = arqueo.movimientos[:SaldoPesos] - arqueo.vales[:SumaPesos] - arqueo.efectivo[:Pesos]
+  #     arqueo.diferencia[:Dolares] = arqueo.movimientos[:SaldoDolares] - arqueo.vales[:SumaDolares] - arqueo.efectivo[:Dolares]
+  #   else
+  #     puts "Para calcular el arqueo usted necesita especificar una fecha"
+  #   end
+  #   return arqueo
+  # end
 
 end
