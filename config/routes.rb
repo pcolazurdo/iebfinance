@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  get 'arqueo/calcular'
+
+  get 'arqueo/imprimir'
+
   resources :efectivos
 
   get '/', to: redirect('/movimientos')
