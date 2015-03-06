@@ -11,31 +11,29 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :idFiscal %><br>
-    <%= f.text_field :idFiscal %>
+  <div class="row same-height">
+    <div class="col-md-5 field">
+      <%= f.text_field :idFiscal %>
+    </div>
+    <div class="col-md-5 field">
+      <%= f.text_field :nombre %>
+    </div>
+    <div class="col-md-1 field">
+      <%= f.text_field :estado %>
+    </div>
+    <div class="col-md-1 field">
+      <%= f.text_field :tipo %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :nombre %><br>
-    <%= f.text_field :nombre %>
-  </div>
-  <div class="field">
-    <%= f.label :estado %><br>
-    <%= f.text_field :estado %>
-  </div>
-  <div class="field">
-    <%= f.label :tipo %><br>
-    <%= f.text_field :tipo %>
-  </div>
-  <div class="field">
-    <%= f.label :email %><br>
-    <%= f.text_field :email %>
-  </div>
-  <div class="field">
-    <%= f.label :direccion %><br>
-    <%= f.text_field :direccion %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="row same-height">
+    <div class="col-md-5 field">
+      <%= f.text_field :email %>
+    </div>
+    <div class="col-md-5 field">
+      <%= f.text_field :direccion %>
+    </div>
+    <div class="col-md-2 actions" style="text-align:right">
+      <%= f.submit ('glyphicon glyphicon-edit', :default => 'Modificar') %>
+    </div>
   </div>
 <% end %>
