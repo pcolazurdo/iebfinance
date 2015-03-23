@@ -8,3 +8,57 @@ movimientos:
   with their lowercase versions
 
 Add yml to create navbar
+
+Add Link to Vales view in Cuenta
+
+By default Movimientos view brings every movement ... this need to be changed to use the Now date except if the search form is completed
+
+Vales - Add Comentarios as an popup window
+
+
+
+Arqueo - has to have date selectable
+
+Add Presupuesto
+
+Add Visualizations of difference between Presupuesto and Executed
+
+
+
+
+
+
+
+
+Miembros
+  should have an ID 0 account for Visita
+  Improve show.html
+  Make index table responsive
+  By default it should only show Active Miembros
+
+Cuentas
+  Make index table responsive
+  Move Create button to the end of the table
+  Show movimientos (with search) on show.html
+  By default it should only show Active Cuentas
+
+Vales
+  By default show only pending Vales and verify summ
+  Add search in index
+  Improve show.html
+  Shouldn't be updateable - only create/destroy/rendir
+  Improve Rindiendo
+  By default it should only show today info
+
+Ofrendas
+  By default it should only show today info
+  Add Colors based on Cuenta?
+  Improve show.html
+  Review Busqueda
+
+Movimientos
+  By default it should only show today info
+  Improve show.html
+  Add Sorting fields
+
+Arqueo - Review default view on small screens
