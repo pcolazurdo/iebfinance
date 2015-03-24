@@ -9,31 +9,18 @@ movimientos:
 
 Add yml to create navbar
 
-Add Link to Vales view in Cuenta
+Add Contribuciones
+  Just a calculation form
 
-By default Movimientos view brings every movement ... this need to be changed to use the Now date except if the search form is completed
-
-Vales - Add Comentarios as an popup window
-
-
-
-Arqueo - has to have date selectable
+Add Obligaciones
+  Most complex
 
 Add Presupuesto
-
-Add Visualizations of difference between Presupuesto and Executed
-
-
-
-
-
-
-
+  Add Visualizations of difference between Presupuesto and Executed
 
 Miembros
-  should have an ID 0 account for Visita
-  Improve show.html
-  Make index table responsive
+  should have an ID 0 account for Visitas
+  Improve show.html  
   By default it should only show Active Miembros
 
 Cuentas
@@ -45,10 +32,13 @@ Cuentas
 Vales
   By default show only pending Vales and verify summ
   Add search in index
+  Add Link to Vales view in Cuenta
   Improve show.html
   Shouldn't be updateable - only create/destroy/rendir
   Improve Rindiendo
   By default it should only show today info
+  Vales - Add Comentarios as an popup window
+  has to have date selectable
 
 Ofrendas
   By default it should only show today info
@@ -61,4 +51,5 @@ Movimientos
   Improve show.html
   Add Sorting fields
 
-Arqueo - Review default view on small screens
+Arqueo
+  Review default view on small screens

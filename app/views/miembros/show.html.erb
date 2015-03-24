@@ -1,34 +1,47 @@
 <p class="page-notice" id="notice"><%= notice %></p>
 
-<p>
-  <strong>Idfiscal:</strong>
-  <%= @miembro.idFiscal %>
-</p>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
 
-<p>
-  <strong>Nombre:</strong>
-  <%= @miembro.nombre %>
-</p>
+      <div class="col-md-3 col-sm-3">
+        <div class="row"> <div class="col-md-11 col-sm-11 show-title"> Id </div> </div>
+        <div class="row"> <div class="col-md-11 col-sm-11 show-field"> <%= @miembro.id %> </div> </div>
+      </div>
+      <div class="col-md-5 col-sm-3">
+        <div class="row"> <div class="col-md-11 col-sm-11 show-title"> Nombre </div> </div>
+        <div class="row"> <div class="col-md-11 col-sm-11 show-field"> <%= @miembro.nombre %> </div> </div>
+      </div>
+      <div class="clearfix visible-xs-block"></div>
+      <div class="col-md-2 col-sm-3">
+        <div class="row"> <div class="col-md-11 col-sm-11 show-title"> Estado </div> </div>
+        <div class="row"> <div class="col-md-11 col-sm-11 show-field"> <%= @miembro.estado %> </div> </div>
+      </div>
+      <div class="clearfix visible-xs-block"></div>
+      <div class="col-md-2 col-sm-3">
+        <div class="row"> <div class="col-md-12 col-sm-12 show-title"> Tipo </div> </div>
+        <div class="row"> <div class="col-md-12 col-sm-12 show-field"> <%= @miembro.tipo %> </div> </div>
+      </div>
 
-<p>
-  <strong>Estado:</strong>
-  <%= @miembro.estado %>
-</p>
+      <div class="col-md-6 col-sm-6">
+        <div class="row"> <div class="col-md-11 col-sm-11 show-title"> Email </div> </div>
+        <div class="row"> <div class="col-md-11 col-sm-11 show-field"> <%= @miembro.email %> </div> </div>
+      </div>
+      <div class="col-md-6 col-sm-6">
+        <div class="row"> <div class="col-md-12 col-sm-12 show-title"> Dirección </div> </div>
+        <div class="row"> <div class="col-md-12 col-sm-12 show-field"> <%= @miembro.direccion %> </div> </div>
+      </div>
 
-<p>
-  <strong>Tipo:</strong>
-  <%= @miembro.tipo %>
-</p>
 
-<p>
-  <strong>Email:</strong>
-  <%= @miembro.email %>
-</p>
+      <div class="row">
+        <div class="col-md-12">
+          <%= link_to 'Edit', edit_miembro_path(@miembro) %> | <%= link_to 'Back', miembros_path %>
+        </div>
+      </div>
+    </div>
+  </div>
 
-<p>
-  <strong>Direccion:</strong>
-  <%= @miembro.direccion %>
-</p>
 
-<%= link_to 'Edit', edit_miembro_path(@miembro) %> |
-<%= link_to 'Back', miembros_path %>
+
+
+</div>

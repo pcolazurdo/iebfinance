@@ -1,0 +1,50 @@
+<div class="col-md-12 col-xs-12 col-sm-12" style="padding-top: 10px">
+  <div class=table-responsive>
+    <table class="table table-hover table-stripped table-condensed table-bordered">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Id Fiscal</th>
+          <th>Nombre</th>
+          <th>Estado</th>
+          <th>Tipo</th>
+          <th>Email</th>
+          <th>Dirección</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @miembros.each do |miembro| %>
+        <tr>
+          <td><%= miembro.id %></td>
+          <td><%= miembro.idFiscal %></td>
+          <td><%= miembro.nombre %></td>
+          <td><%= miembro.estado %></td>
+          <td><%= miembro.tipo %></td>
+          <td><%= miembro.email %></td>
+          <td><%= miembro.direccion %></td>
+          <td><%= link_to miembro, class: "btn btn-default" do %>
+            <span class="glyphicon glyphicon-search"></span>
+            <% end %>
+          </td>
+          <td><%= link_to edit_miembro_path(miembro), class: "btn btn-default" do %>
+            <span class="glyphicon glyphicon-edit"></span>
+            <% end %>
+          </td>
+          <td><%= link_to miembro, method: :delete, data: { confirm: 'Está seguro?' }, class: "btn btn-default" do %>
+            <span class="glyphicon glyphicon-remove"></span>
+            <% end %>
+          </td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+
+  <br>
+
+  <%= link_to new_miembro_path, class: "btn btn-default" do %>
+    <span class="glyphicon glyphicon-plus"></span> Nuevo Miembro
+  <% end %>
+</div>
