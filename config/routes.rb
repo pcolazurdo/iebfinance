@@ -1,8 +1,17 @@
 Rails.application.routes.draw do
 
-  get 'arqueo/calcular'
+  # get 'arqueo/calcular'
+  #
+  # get 'arqueo/imprimir'
 
-  get 'arqueo/imprimir'
+  resources :arqueo do
+    collection do
+      get :calcular
+      get :imprimir
+      get :prev
+      get :next
+    end
+  end
 
   resources :efectivos
 
@@ -23,6 +32,7 @@ Rails.application.routes.draw do
       get :list
     end
   end
+
   #resources :cuentas
   resources :cuentas do
     # get :update_table => 'ofrendas#update_table', as: 'update_table'

@@ -885,36 +885,41 @@ module ApplicationHelper
     return a.html_safe
   end
 
-  def calcular_arqueo(fecha)
-    diferencia = {}
-    if not fecha.nil?
-      efectivo = Efectivo.calcular_efectivo(fecha)
-      saldoMovimientos = Movimientos.calcular_saldos_movimientos()
-      saldoVales = Vales.calcular_vales()
-
-      diferencia[:Pesos] = saldoMovimientos[:SumaPesos] - saldoVales[:SumaPesos] - efectivo[:Pesos]
-      diferencia[:Dolares] = saldoMovimientos[:SumaDolares] - saldoVales[:SumaDolares] - efectivo[:Dolares]
-    else
-      puts "Para calcular el arqueo usted necesita especificar una fecha"
-    end
-    return diferencia
-  end
-
-  # def arqueo(fecha)
-  #   Arqueo = Struct.new :efectivo, :movimientos, :vales, :diferencia
-  #   arqueo = Arqueo.new
-  #   arqueo.diferencia = {}
+  # def calcular_arqueo(fecha)
+  #   diferencia = {}
   #   if not fecha.nil?
-  #     arqueo.efectivo = Efectivo.calcular_efectivo(fecha)
-  #     arqueo.movimientos = Movimiento.calcular_saldos_movimientos()
-  #     arqueo.vales = Vale.calcular_vales()
+  #     efectivo = Efectivo.calcular_efectivo(fecha)
+  #     saldoMovimientos = Movimientos.calcular_saldos_movimientos()
+  #     saldoVales = Vales.calcular_vales()
   #
-  #     arqueo.diferencia[:Pesos] = arqueo.movimientos[:SaldoPesos] - arqueo.vales[:SumaPesos] - arqueo.efectivo[:Pesos]
-  #     arqueo.diferencia[:Dolares] = arqueo.movimientos[:SaldoDolares] - arqueo.vales[:SumaDolares] - arqueo.efectivo[:Dolares]
+  #     diferencia[:Pesos] = saldoMovimientos[:SumaPesos] - saldoVales[:SumaPesos] - efectivo[:Pesos]
+  #     diferencia[:Dolares] = saldoMovimientos[:SumaDolares] - saldoVales[:SumaDolares] - efectivo[:Dolares]
   #   else
   #     puts "Para calcular el arqueo usted necesita especificar una fecha"
   #   end
-  #   return arqueo
+  #   return diferencia
   # end
+
+  def sortable_column_heading(label, sort, keep_params = [])
+    options = {
+      controller: params[:controller],
+      action:     params[:action],
+      id:         params[:id],
+      sort:       sort_params(sort)
+    }.merge(
+    params.reject { |k| !keep_params.include?(k) }
+    )
+    url = url_for(options)
+    link_to label, url
+  end
+
+  def sort_params(sort)
+    old_params = params[:sort].to_s.split(',')
+    (sort.split(',') + old_params).uniq.join(',')
+  end
+
+  #def order!(*args)
+  #  @scope = @scope.order(*args)
+  #end
 
 end

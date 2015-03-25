@@ -13,7 +13,12 @@ class MovimientosController < ApplicationController
     end
 
     @search = Movimiento.ransack(params[:q])
-    @movimientos = @search.result(distinct: true).includes(:cuenta).order(id: :desc)
+    if !params[:sort].nil?
+      @search.sorts = params[:sort]
+      @movimientos = @search.result(distinct: true).includes(:cuenta)
+    else
+      @movimientos = @search.result(distinct: true).includes(:cuenta).order(id: :desc)
+    end
     @totals = self.totals
   end
 

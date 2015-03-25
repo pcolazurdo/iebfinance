@@ -1,3 +1,7 @@
+# Urgent: Review sorting in Movimientos and deploy on each view
+
+
+
 movimientos:
   replace
     t.decimal  "IngresoPesos"
@@ -20,7 +24,7 @@ Add Presupuesto
 
 Miembros
   should have an ID 0 account for Visitas
-  Improve show.html  
+  Improve show.html
   By default it should only show Active Miembros
 
 Cuentas
@@ -53,3 +57,33 @@ Movimientos
 
 Arqueo
   Review default view on small screens
+
+
+CSV Export - add inside index methods!
+format.csv do
+  CSV.generate(csv_str = '') do |csv|
+    csv << %w(group_name group_id group_link_code first_name last_name person_id person_legacy_id class_time recorded_time)
+    @rel.each do |record|
+      csv << [
+        record.group.try(:name),
+        record.group.try(:id),
+        record.group.try(:link_code),
+        record.first_name,
+        record.last_name,
+        record.person_id,
+        record.person.try(:legacy_id),
+        record.attended_at.to_s,
+        record.created_at.to_s
+      ]
+    end
+  end
+  render text: csv_str
+end
+
+
+Pagination
+respond_to do |format|
+      format.html do
+        @records = @rel.paginate(page: params[:page], per_page: 100)
+        @record_count = @records.total_entries
+      end

@@ -1,15 +1,12 @@
 class ArqueoController < ApplicationController
   ArqueoStruct = Struct.new :efectivo, :movimientos, :vales, :diferencia, :fecha
 
-  def calcular
-    if params[:fecha].nil?
-      fecha = "2090-12-31"
-    else
-      fecha = params[:fecha]
-    end
+  def index
+    @fecha = params[:fecha] ? Date.parse(params[:fecha]) : Date.today
 
-    @arqueo = arqueo(fecha)
-    render 'calcular'
+
+    @arqueo = arqueo(@fecha)
+    render 'index'
   end
 
   def imprimir
@@ -17,10 +14,6 @@ class ArqueoController < ApplicationController
 
 
   def arqueo(fecha)
-    if fecha.nil?
-      fecha = "2090-12-31"
-      puts "Para calcular el arqueo usted debería especificar una fecha"
-    end
 
     arqueo = ArqueoStruct.new
     arqueo.fecha = fecha
@@ -42,6 +35,23 @@ class ArqueoController < ApplicationController
     puts arqueo.efectivo[:Dolares]
 
     return arqueo
+  end
+
+
+  def prev
+    puts "Prev:", params[:fecha]
+    @fecha = Date.parse(params[:fecha])
+    date = Efectivo.where("fecha < ?", @fecha.strftime('%Y/%m/%d 0:00')).maximum(:fecha)
+    puts "Prev:", date
+    redirect_to arqueo_index_path(fecha: date)
+  end
+
+  def next
+    puts "Next:", params[:fecha]
+    @fecha = Date.parse(params[:fecha])
+    date = Efectivo.where("fecha < ?", @fecha.strftime('%Y/%m/%d 0:00')).maximum(:fecha)
+    puts "Next:", date
+    redirect_to arqueo_index_path(fecha: date)
   end
 
 end
