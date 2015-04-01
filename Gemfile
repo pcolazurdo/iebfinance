@@ -30,7 +30,7 @@ gem 'font-awesome-sass'
 
 # Added from ekylibre
 gem 'active-list'
-gem 'compass-rails'
+gem 'compass-rails', '~> 2.0'
 
 
 # For Heroku
