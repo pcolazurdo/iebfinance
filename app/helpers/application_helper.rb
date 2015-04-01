@@ -900,17 +900,33 @@ module ApplicationHelper
   #   return diferencia
   # end
 
+  def resetsort_column_heading()
+    label = ""
+    keep_params = []
+    options = {
+      controller: params[:controller],
+      action:     params[:action],
+      id:         params[:id],
+      sort:       "id" // Is this right?
+    }.merge(
+    params.reject { |k| !keep_params.include?(k) }
+    )
+    url = url_for(options)
+    link_to label, url, :class => "glyphicon glyphicon-sort"
+  end
+
+
   def sortable_column_heading(label, sort, keep_params = [])
     options = {
       controller: params[:controller],
       action:     params[:action],
       id:         params[:id],
-      sort:       sort_params(sort)
+      sort:       "sort_params(sort)"
     }.merge(
     params.reject { |k| !keep_params.include?(k) }
     )
     url = url_for(options)
-    link_to label, url
+    link_to label, url, :class => "sortable-column"
   end
 
   def sort_params(sort)
