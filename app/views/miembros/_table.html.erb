@@ -4,8 +4,8 @@
       <thead>
         <tr>
           <th>Id</th>
-          <th>Id Fiscal</th>
-          <th>Nombre</th>
+          <th><%= sortable_column_heading('Id Fiscal','idFiscal asc') %> <%= resetsort_column_heading() %></th>
+          <th><%= sortable_column_heading('Nombre','nombre desc') %> <%= resetsort_column_heading() %></th>
           <th>Estado</th>
           <th>Tipo</th>
           <th>Email</th>

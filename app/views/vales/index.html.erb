@@ -5,13 +5,13 @@
 <table class="table table-hover table-stripped table-condensed table-bordered">
   <thead>
     <tr>
-      <th>Cuenta</th>
-      <th>Responsable</th>
-      <th>Fecha Emision</th>
-      <th>Fecha Rendicion</th>
-      <th>Estado</th>
-      <th>Monto Pesos</th>
-      <th>Monto Dólares</th>
+      <th><%= sortable_column_heading('Cuenta','cuenta_id asc') %> <%= resetsort_column_heading() %></th>
+      <th><%= sortable_column_heading('Responsable','responsable asc') %> <%= resetsort_column_heading() %></th>
+      <th><%= sortable_column_heading('Fecha Emisión','fechaEmision asc') %> <%= resetsort_column_heading() %></th>
+      <th><%= sortable_column_heading('Fecha Rendición','fechaRendicion desc') %> <%= resetsort_column_heading() %></th>
+      <th><%= sortable_column_heading('Estado','estado desc') %> <%= resetsort_column_heading() %></th>
+      <th><%= sortable_column_heading('Monto Pesos','montoPesos desc') %> <%= resetsort_column_heading() %></th>
+      <th><%= sortable_column_heading('Monto Dólares','montoDolares desc') %> <%= resetsort_column_heading() %></th>
       <th>Comentarios</th>
       <th colspan="4" ></th>
     </tr>
@@ -40,7 +40,7 @@
           <span class="glyphicon glyphicon-remove"></span> <span class="hidden-xs hidden-sm"> Borrar </span>
           <% end %>
         </td>
-        <td><%= link_to [:rendir, vale] , class: "btn btn-default" do %> 
+        <td><%= link_to [:rendir, vale] , class: "btn btn-default" do %>
           <span class="glyphicon glyphicon-check"></span> <span class="hidden-xs hidden-sm"> Rendir </span>
           <% end %>
         </td>
