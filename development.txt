@@ -47,3 +47,44 @@ ransack
 Samples from Ekylibre
 
 Added quiet_assets
+
+
+
+b = []
+a.split(",").each do |i|
+  x = i.split(" ")
+  if !x[1].nil?
+    case x[1].downcase
+    when "asc"
+      x[1] = "desc"
+    when "desc"
+      x[1] = "asc"
+    end
+  else
+    x[1] = "desc"
+  end
+  puts i
+  b.push( x.uniq.join(" "))
+end
+b = b.uniq.join(",")
+puts b
+
+
+    sort="id"
+    old_params = []
+    new_params = []
+    sort.split(",").each do |i|
+      x = i.split(" ")
+      if !x[1].nil?
+        case x[1].downcase
+        when "asc"
+          x[1] = "desc"
+        when "desc"
+          x[1] = "asc"
+        end
+      else
+        x[1] = "desc"
+      end
+      new_params.push( x.uniq.join(" "))
+    end
+    puts (new_params + old_params).uniq.join(',')

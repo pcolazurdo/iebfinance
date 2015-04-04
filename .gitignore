@@ -23,6 +23,7 @@ capybara-*.html
 /db/*.sqlite3
 /db/*.sqlite3-journal
 /public/system
+
 /coverage/
 /spec/tmp
 **.orig
@@ -50,3 +51,7 @@ bower.json
 
 # Ignore pow environment settings
 .powenv
+
+# Ignore compiled assets
+/public/assets
+

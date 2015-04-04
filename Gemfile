@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
 
@@ -30,7 +29,7 @@ gem 'font-awesome-sass'
 
 # Added from ekylibre
 gem 'active-list'
-gem 'compass-rails', '~> 2.0'
+gem 'compass-rails', '~> 2.0.4'
 
 
 # For Heroku
