@@ -55,3 +55,4 @@ bower.json
 # Ignore compiled assets
 /public/assets
 
+.vagrant/
