@@ -921,7 +921,7 @@ module ApplicationHelper
       controller: params[:controller],
       action:     params[:action],
       id:         params[:id],
-      sort:       "sort_params(sort)"
+      sort:       sort_params(sort)
     }.merge(
     params.reject { |k| !keep_params.include?(k) }
     )
@@ -930,9 +930,10 @@ module ApplicationHelper
   end
 
   def sort_params(sort)
-    old_params = params[:sort].to_s.split(',')
+    old_params = sort.to_s.split(',')
+    #puts "1", old_params
     new_params = []
-    sort.split(",").each do |i|
+    old_params.split(",").each do |i|
       x = i.split(" ")
       if !x[1].nil?
         case x[1].downcase
@@ -944,10 +945,14 @@ module ApplicationHelper
       else
         x[1] = "desc"
       end
-      new_params.push( x.uniq.join(" "))
+      new_params.push( x.join(" "))
     end
-    (new_params + old_params).uniq.join(',')
-  end
+    #puts "2", new_params
+    #puts "3", (new_params).join(',')
+    # (new_params + old_params).uniq.join(',')
+    (new_params).join(',')
+  end 
+
 
   #def order!(*args)
   #  @scope = @scope.order(*args)

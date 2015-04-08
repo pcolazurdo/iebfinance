@@ -14,7 +14,6 @@ class MovimientosController < ApplicationController
 
     @search = Movimiento.ransack(params[:q])
     if !params[:sort].nil?
-      puts "Sort:", params[:sort]
       @search.sorts = params[:sort]
       @movimientos = @search.result(distinct: true).includes(:cuenta)
     else
