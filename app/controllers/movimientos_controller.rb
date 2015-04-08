@@ -1,6 +1,6 @@
 require 'date'
 
-class MovimientosController < ApplicationController
+class MovimientosController < BaseController
   before_action :set_movimiento, only: [:show, :edit, :update, :destroy]
   before_action :update_table, only: [:index, :show, :edit, :update, :destroy, :create]
 
