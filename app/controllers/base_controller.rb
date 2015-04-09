@@ -10,7 +10,7 @@ class BaseController < ApplicationController
       when "desc"
         value += " desc"
       else
-        puts "Command Injection?"
+        
         # splitted.each do |x|
         #   puts x
         # end

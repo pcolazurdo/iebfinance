@@ -2,8 +2,6 @@ class MiembrosController < BaseController
   before_action :set_miembro, only: [:show, :edit, :update, :destroy]
   before_action :update_table, only: [:index, :show, :edit, :update, :destroy, :create]
 
-  helper ApplicationHelper
-
   # GET /miembros
   # GET /miembros.json
   def index
@@ -17,6 +15,7 @@ class MiembrosController < BaseController
     else
       @miembros = Miembro.all
     end
+
   end
 
   # GET /miembros/1
@@ -87,7 +86,5 @@ class MiembrosController < BaseController
     def miembro_params
       params.require(:miembro).permit(:idFiscal, :nombre, :estado, :tipo, :email, :direccion)
     end
-
-
 
 end
