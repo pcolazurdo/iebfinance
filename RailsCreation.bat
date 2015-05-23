@@ -8,4 +8,7 @@ rem call rails generate migration AddMiemrboRefToOfrenda miembro:references
 rem call rails generate scaffold Movimiento fecha:date IngresoPesos:decimal IngresoDolares:decimal EgresoPesos:decimal EgresoDolares:decimal Comprobante:string comentario:text 
 rem call rails generate migration AddCuentaRefToMovimiento cuenta:references
 
-call rails generate controller Arqueo calcular imprimir
+rem call rails generate controller Arqueo calcular imprimir
+rem call rails generate migration RemoveEstadoFromVale estado:string
+rem call rails generate migration AddTelefonoToMiembro telefono:string
+rem call rails generate migration AddLocalidadToMiembro localidad:string
