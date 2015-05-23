@@ -9,7 +9,6 @@
       <th><%= sortable_column_heading('Responsable','responsable asc') %> <%= resetsort_column_heading() %></th>
       <th><%= sortable_column_heading('Fecha Emisión','fechaEmision asc') %> <%= resetsort_column_heading() %></th>
       <th><%= sortable_column_heading('Fecha Rendición','fechaRendicion desc') %> <%= resetsort_column_heading() %></th>
-      <th><%= sortable_column_heading('Estado','estado desc') %> <%= resetsort_column_heading() %></th>
       <th><%= sortable_column_heading('Monto Pesos','montoPesos desc') %> <%= resetsort_column_heading() %></th>
       <th><%= sortable_column_heading('Monto Dólares','montoDolares desc') %> <%= resetsort_column_heading() %></th>
       <th>Comentarios</th>
@@ -23,8 +22,7 @@
         <td><%= vale.cuenta_id %></td>
         <td><%= vale.responsable %></td>
         <td><%= vale.fechaEmision %></td>
-        <td><%= vale.fechaRendicion %></td>
-        <td><%= vale.estado %></td>
+        <td><%= vale.fechaRendicion %></td>        
         <td class="monto"><%= vale.montoPesos %></td>
         <td class="monto"><%= vale.montoDolares %></td>
         <td><%= vale.comentario %></td>
