@@ -2,10 +2,10 @@
 
 <h1>Listing Efectivos</h1>
 
-<table>
+<table class="table table-hover table-stripped table-condensed table-bordered">
   <thead>
     <tr>
-      <th>Fecha</th>
+      <th><%= sortable_column_heading('Fecha','fecha asc') %> <%= resetsort_column_heading() %></th>
       <th>Pesos2</th>
       <th>Pesos5</th>
       <th>Pesos10</th>
@@ -44,9 +44,18 @@
         <td><%= efectivo.Dolares50 %></td>
         <td><%= efectivo.Dolares100 %></td>
         <td><%= efectivo.DolaresMonedas %></td>
-        <td><%= link_to 'Show', efectivo %></td>
-        <td><%= link_to 'Edit', edit_efectivo_path(efectivo) %></td>
-        <td><%= link_to 'Destroy', efectivo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to efectivo, class: "btn btn-default" do %>
+          <span class="glyphicon glyphicon-search"></span> Ver
+          <% end %>
+        </td>
+        <td><%= link_to edit_efectivo_path(efectivo), class: "btn btn-default" do %>
+          <span class="glyphicon glyphicon-edit"></span> Modificar
+          <% end %>
+        </td>
+        <td><%= link_to efectivo, method: :delete, data: { confirm: 'Está seguro?' }, class: "btn btn-default" do %>
+          <span class="glyphicon glyphicon-remove"></span> Borrar
+          <% end %>
+        </td>
       </tr>
     <% end %>
   </tbody>
