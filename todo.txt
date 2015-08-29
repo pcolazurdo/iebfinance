@@ -1,6 +1,18 @@
 # Urgent: Review sorting in Movimientos and deploy on each view
 
+Document User Creation:
+  How to create new users:
 
+  heroku run rails console
+
+  u = User.new({
+        email: 'xxx@gmail.com',
+        password: 'xxx',
+        password_confirmation: 'xxx'
+     })
+      u.save!(:validate => false)
+
+Implement sendgrid on heroku and add it to Devise
 
 movimientos:
   replace

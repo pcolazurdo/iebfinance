@@ -17,4 +17,4 @@ rem bundle install
 rem rails generate devise:install
 rem rails g devise User
 rem rake db:migrate
-rem rails generate devise:views
+##rem rails generate devise:views
