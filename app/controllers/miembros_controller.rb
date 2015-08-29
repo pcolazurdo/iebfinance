@@ -4,6 +4,7 @@ class MiembrosController < BaseController
 
   # GET /miembros
   # GET /miembros.json
+  before_action :authenticate_user!
   def index
     # @miembros = Miembro.all
   end

@@ -1,6 +1,7 @@
 class ArqueoController < ApplicationController
   ArqueoStruct = Struct.new :efectivo, :movimientos, :vales, :diferencia, :fecha
 
+  before_action :authenticate_user!
   def index
     @fecha = params[:fecha] ? Date.parse(params[:fecha]) : Date.today
 

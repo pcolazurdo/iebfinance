@@ -22,9 +22,9 @@ class OfrendasController < ApplicationController
     @totals = self.totals
   end
 
-
+  before_action :authenticate_user!
   def index
-    self.new    
+    self.new
   end
 
   def totals
