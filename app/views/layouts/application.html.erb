@@ -38,8 +38,16 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-sm-12 col-md-12 main">
-        <div class="alert alert-info"><%= notice %></div>
-        <div class="alert alert-danger"><%= alert %></div>
+        <% flash.each do |key, value| %>
+          <div class="alert alert-<%= key %>">
+            <a href="#" data-dismiss="alert" class="close">×</a>
+            <ul>
+              <li>
+                <%= value %>
+              </li>
+            </ul>
+          </div>
+        <% end %>
       </div>
     </div>
   </div>
