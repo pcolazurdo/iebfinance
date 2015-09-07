@@ -30,6 +30,8 @@ gem 'font-awesome-sass'
 gem 'active-list'
 gem 'compass-rails', '~> 2.0.4'
 
+# For ReactJS
+gem 'react-rails', '~> 1.0'
 
 # For Heroku
 gem 'rails_12factor', group: :production

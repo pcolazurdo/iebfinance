@@ -48,3 +48,10 @@
 <div id="content-table">
   <%= render 'table' %>
 </div>
+
+
+
+
+<%= react_component('OfrendasList',
+    { initialOfrendas: @ofrendas },
+    { prerender: params[:noprerender].nil? }) %>
